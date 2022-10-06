@@ -1,11 +1,10 @@
-from interface.fabricaPersonagem import personaInterface
+from builders.Classe import Classe
 
-class instanciaLadino(personaInterface):
 
-    def __init__(self, nome) -> dict:
-        self.raca = {
-            'nome': 'Ladino'
-            'proeficiencias': None,
-        
-        }
-        return self.raca
+class Ladino(Classe):
+    def __init__(self):
+        super().__init__()
+        self.name = "Ladino"
+
+    def get_name(self):
+        return "CLASSE: " + self.name
