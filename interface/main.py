@@ -7,8 +7,7 @@ class DndGenerator:
         self.user = Usuario("Matheus", "matheus.melotti@gmail.com")
         self.character = PersonaInterface("Durat Diablo",
                                           "Elfo",
-                                          "Ladino",
-                                          [15, 0, 0, 0, 0, 0])
+                                          "Ladino")
 
     def printa_usuario(self):
         print(self.user.nome)

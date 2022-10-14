@@ -7,13 +7,13 @@ from app.racas import anao, draconato, elfo, gnomo, halfling, humano, meioElfo, 
 
 
 class PersonaInterface(ABC):
-    def __init__(self, name: str, race: str, chosen_class: str, dices: list):
+    def __init__(self, name: str, race: str, chosen_class: str):
 
-        roll_dices = {
+        self.roll_dices = {
             "rolls": {
-                'strength': dices[0], 'dexterity': dices[1],
-                'constitution': dices[2], 'intelligence': dices[3],
-                'wisdom': dices[4], 'charisma': dices[5]
+                'strength': 0, 'dexterity': 0,
+                'constitution': 0, 'intelligence': 0,
+                'wisdom': 0, 'charisma': 0
             },
             "modifiers": {
                 'strength': 0, 'dexterity': 0,
@@ -21,8 +21,7 @@ class PersonaInterface(ABC):
                 'wisdom': 0, 'charisma': 0
             }
         }
-
-        self.dices = PersonaInterface.status(roll_dices)
+        self.dices = PersonaInterface.status(self.roll_dices)
         self.name = str(name)
         self.race = PersonaInterface.build_race(race)
         self.person_class = PersonaInterface.build_class(chosen_class)
@@ -42,7 +41,7 @@ class PersonaInterface(ABC):
         self.idiom = list
 
     @staticmethod
-    def build_race(race, roll_dices):
+    def build_race(race):
         try:
             match race.upper():
                 case "ANAO":
@@ -83,16 +82,13 @@ class PersonaInterface(ABC):
 
     @staticmethod
     def status(roll_dices):
+
         for i in roll_dices["rolls"]:
-            if roll_dices["rolls"][i] == 0:
-                total, dice = 0, []
-                for x in range(4):
-                    dice.append(random.randint(1, 6))
-                dice.remove(min(dice))
-                for m in dice:
-                    total += m
-                roll_dices["rolls"][i] = total
-            else:
-                total = roll_dices["rolls"][i]
-            roll_dices["modifiers"][i] = (total//2) - 5
+            total, dice = 0, []
+            for x in range(4):
+                dice.append(random.randint(1, 6))
+            dice.remove(min(dice))
+            for m in dice:
+                total += m
+            roll_dices["rolls"][i] = total
         return roll_dices
