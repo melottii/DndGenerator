@@ -1,67 +1,52 @@
 from abc import ABC
 
 import random
+import re
+import unidecode
 
 from app.classes import barbaro, bruxo, ladino
-from app.racas import anao, draconato, elfo, gnomo, halfling, humano, meioElfo, meioOrc, tiefling
+from app.racas import anao, draconato, humano
+from app.antecedentes import artesaoDeGuilda
 
 
 class PersonaInterface(ABC):
-    def __init__(self, name: str, race: str, chosen_class: str):
-
-        self.roll_dices = {
-            "rolls": {
-                'strength': 0, 'dexterity': 0,
-                'constitution': 0, 'intelligence': 0,
-                'wisdom': 0, 'charisma': 0
-            },
-            "modifiers": {
-                'strength': 0, 'dexterity': 0,
-                'constitution': 0, 'intelligence': 0,
-                'wisdom': 0, 'charisma': 0
-            }
-        }
-        self.dices = PersonaInterface.status(self.roll_dices)
-        self.name = str(name)
-        self.race = PersonaInterface.build_race(race)
-        self.person_class = PersonaInterface.build_class(chosen_class)
-        self.trend = str
+    def __init__(self, name: str, race: str, chosen_class: str, background: str):
+        self.name = name
         self.body = list
         self.equip = list
-        self.magic_tricks = list
-        self.magic_spells = list
-        self.tricks = list
-        self.antecedent_type = str
-        self.personality_trait = str
-        self.ideal = str
-        self.bond = str
-        self.flaw = str
         self.expertise = list
         self.language = int
         self.idiom = list
+        self.trend = PersonaInterface.trend_definition()
+
+        self.roll_dices = {
+            "rolls": {'strength': 0, 'dexterity': 0,
+                      'constitution': 0, 'intelligence': 0,
+                      'wisdom': 0, 'charisma': 0},
+            "modifiers": {'strength': 0, 'dexterity': 0,
+                          'constitution': 0, 'intelligence': 0,
+                          'wisdom': 0, 'charisma': 0}
+        }
+        self.dices = PersonaInterface.status(self.roll_dices)
+        self.race = PersonaInterface.build_race(race)
+        self.person_class = PersonaInterface.build_class(chosen_class)
+        self.magic = {"tricks": list,
+                      "spells": {"0": None,
+                                 "1": None}}
+        self.antecedent = PersonaInterface.background_settings(background)
 
     @staticmethod
     def build_race(race):
         try:
-            match race.upper():
+            race = re.sub('[^A-Z]', '', unidecode.unidecode(race.upper()))
+            print(race)
+            match race:
                 case "ANAO":
                     return anao.Anao()
                 case "DRACONATO":
                     return draconato.Draconato()
-                case "ELFO":
-                    return elfo.Elfo()
-                case "GNOMO":
-                    return gnomo.Gnomo()
-                case "HALFLING":
-                    return halfling.Halfling()
                 case "HUMANO":
                     return humano.Humano()
-                case "MEIO-ELFO":
-                    return meioElfo.MeioElfo()
-                case "MEIO-ORC":
-                    return meioOrc.MeioOrc()
-                case "TIEFLING":
-                    return tiefling.Tiefling()
         except Exception as e:
             print(e)
             return e
@@ -82,7 +67,6 @@ class PersonaInterface(ABC):
 
     @staticmethod
     def status(roll_dices):
-
         for i in roll_dices["rolls"]:
             total, dice = 0, []
             for x in range(4):
@@ -92,3 +76,28 @@ class PersonaInterface(ABC):
                 total += m
             roll_dices["rolls"][i] = total
         return roll_dices
+
+    @staticmethod
+    def trend_definition():
+        opt = ["Leal e Bom", "Leal e Neutro", "Leal e Mau"
+               "Neutro e Bom", "Neutro e Mau", "Neutro"
+               "Caótico e Bom", "Caótico e Neutro", "Caótico e Mau"]
+        trend = random.choice(opt)
+        return trend
+
+    @staticmethod
+    def background_settings(background):
+        choices = ["ARTESAODEGUILDA", "ACOLITO", "CHARLATAO"]
+        if background.upper() is None:
+            background_name = random.choice(choices)
+        else:
+            background_name = re.sub("[^A-Z]", "", unidecode.unidecode(background.upper()))
+            if background_name not in choices:
+                background_name = random.choice(choices)
+        match background_name:
+            case "ARTESAODEGUILDA":
+                return artesaoDeGuilda.ArtesaoDeGuilda()
+            case "ACOLITO":
+                pass
+            case "CHARLATAO":
+                pass
