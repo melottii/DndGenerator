@@ -20,12 +20,13 @@ class DndGenerator:
         print(self.character.trend)
         print(self.character.dices["rolls"])
         print(self.character.dices["modifiers"])
-        print(self.character.antecedent.get_name())
-        print(self.character.antecedent.get_type())
-        print(self.character.antecedent.get_personality_trait())
-        print(self.character.antecedent.get_ideal())
-        print(self.character.antecedent.get_flaw())
-        print(self.character.antecedent.get_bond())
+        print(self.character.antecedent.get_name(self.character))
+        print(self.character.antecedent.get_type(self.character))
+        print(self.character.antecedent.get_personality_trait(self.character))
+        print(self.character.antecedent.get_ideal(self.character))
+        print(self.character.antecedent.get_flaw(self.character))
+        print(self.character.antecedent.get_bond(self.character))
+
 
 if __name__ == "__main__":
     first_person = DndGenerator()

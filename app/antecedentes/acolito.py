@@ -4,7 +4,7 @@ from builders.Antecedente import Antecedente
 
 
 class ArtesaoDeGuilda(Antecedente):
-    def __init__(self, personagem):
+    def __init__(self):
         super().__init__()
         self.definer = ['Mercador De Guilda (Variant)',
                         'Alquimistas e boticários',
@@ -66,39 +66,34 @@ class ArtesaoDeGuilda(Antecedente):
                      'Eu sou terrivelmente invejoso com qualquer um que possa ofuscar meu ofício. Todo lugar que eu '
                      'vou, estou cercado de rivais.']
 
-        personagem.background_format["name"] = "ARTESÃO DE GUILDA"
-        personagem.background_format["type"] = ArtesaoDeGuilda.bcgd_type(self)
-        personagem.background_format["personality_trait"] = ArtesaoDeGuilda.bcgd_personality_trait(self)
-        personagem.background_format["ideal"] = ArtesaoDeGuilda.bcgd_ideal(self)
-        personagem.background_format["bond"] = ArtesaoDeGuilda.bcgd_bond(self)
-        personagem.background_format["flaw"] = ArtesaoDeGuilda.bcgd_flaw(self)
-        personagem.expertise.append('Intuição')
-        personagem.expertise.append('Persuasão')
-        personagem.language += 1
-        personagem.equip.append("Conjunto de ferramentas de artesão")
-        personagem.equip.append("Carta de apresentação da sua guilda")
-        personagem.equip.append("Conjunto de roupas de viajante")
-        personagem.equip.append("Uma algibeira")
-        personagem.money["ouro (po)"] += 15
+        self.background_format = ArtesaoDeGuilda.background_settings(self)
 
-    def get_name(self, personagem):
-        return "ANTECEDENTE: " + personagem.background_format["name"]
+    def get_name(self):
+        return "ANTECEDENTE: " + "ARTESÃO DE GUILDA"
 
-    def get_type(self, personagem):
-        return "VARIAÇÃO DO ANTECEDENTE: " + personagem.background_format["type"]
+    def get_type(self):
+        return "VARIAÇÃO DO ANTECEDENTE: " + self.background_format["type"]
 
-    def get_personality_trait(self, personagem):
-        return f"TRAÇOS DE PERSONALIDADE 1: {personagem.background_format['personality_trait'][0]}\n"\
-               f"TRAÇOS DE PERSONALIDADE 2: {personagem.background_format['personality_trait'][1]}"
+    def get_personality_trait(self):
+        return f"TRAÇOS DE PERSONALIDADE 1: {self.background_format['personality_trait'][0]}\n"\
+               f"TRAÇOS DE PERSONALIDADE 2: {self.background_format['personality_trait'][1]}"
 
-    def get_ideal(self, personagem):
-        return "IDEAL: " + personagem.background_format["ideal"]
+    def get_ideal(self):
+        return "IDEAL: " + self.background_format["ideal"]
 
-    def get_bond(self, personagem):
-        return "VINCULO: " + personagem.background_format["bond"]
+    def get_bond(self):
+        return "VINCULO: " + self.background_format["bond"]
 
-    def get_flaw(self, personagem):
-        return "DEFEITO: " + personagem.background_format["flaw"]
+    def get_flaw(self):
+        return "DEFEITO: " + self.background_format["flaw"]
+
+    def background_settings(self):
+        self.background_format = {"type": ArtesaoDeGuilda.bcgd_type(self),
+                                  "personality_trait": ArtesaoDeGuilda.bcgd_personality_trait(self),
+                                  "ideal": ArtesaoDeGuilda.bcgd_ideal(self), "bond": ArtesaoDeGuilda.bcgd_bond(self),
+                                  "flaw": ArtesaoDeGuilda.bcgd_flaw(self)}
+
+        return self.background_format
 
     def bcgd_type(self):
         return random.choice(self.definer)

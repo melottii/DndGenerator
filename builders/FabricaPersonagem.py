@@ -12,11 +12,17 @@ from app.antecedentes import artesaoDeGuilda
 class PersonaInterface(ABC):
     def __init__(self, name: str, race: str, chosen_class: str, background: str):
         self.name = name
-        self.body = list
-        self.equip = list
-        self.expertise = list
-        self.language = int
-        self.idiom = list
+        self.body = []
+        self.equip = []
+        self.money = {"cobre (pc)": 0,
+                      "prata (pp)": 0,
+                      "electro (pe)": 0,
+                      "ouro (po)": 0,
+                      "platina (pl)": 0
+        }
+        self.expertise = []
+        self.language = 0
+        self.idiom = []
         self.trend = PersonaInterface.trend_definition()
 
         self.roll_dices = {
@@ -33,7 +39,15 @@ class PersonaInterface(ABC):
         self.magic = {"tricks": list,
                       "spells": {"0": None,
                                  "1": None}}
-        self.antecedent = PersonaInterface.background_settings(background)
+
+        self.background_format = {"name": None,
+                                  "type": None,
+                                  "personality_trait": None,
+                                  "ideal": None,
+                                  "bond": None,
+                                  "flaw": None}
+
+        self.antecedent = PersonaInterface.background_settings(self, background)
 
     @staticmethod
     def build_race(race):
@@ -86,7 +100,7 @@ class PersonaInterface(ABC):
         return trend
 
     @staticmethod
-    def background_settings(background):
+    def background_settings(self, background):
         choices = ["ARTESAODEGUILDA", "ACOLITO", "CHARLATAO"]
         if background.upper() is None:
             background_name = random.choice(choices)
@@ -96,7 +110,7 @@ class PersonaInterface(ABC):
                 background_name = random.choice(choices)
         match background_name:
             case "ARTESAODEGUILDA":
-                return artesaoDeGuilda.ArtesaoDeGuilda()
+                return artesaoDeGuilda.ArtesaoDeGuilda(self)
             case "ACOLITO":
                 pass
             case "CHARLATAO":
