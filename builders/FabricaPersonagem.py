@@ -2,7 +2,8 @@ from abc import ABC
 
 import random
 import re
-import unidecode
+import sys
+from unidecode import unidecode
 
 from app.classes import barbaro, bruxo, ladino
 from app.racas import anao, draconato, humano
@@ -10,108 +11,101 @@ from app.antecedentes import artesaoDeGuilda
 
 
 class PersonaInterface(ABC):
-    def __init__(self, name: str, race: str, chosen_class: str, background: str):
-        self.name = name
+    def __init__(self):
+        self.name = str
         self.body = []
         self.equip = []
+        self.expertise = []
+        self.idiom = {"rand": 0, "choice": []}
+        self.trend = str
+        self.race = str
+        self.person_class = str
         self.money = {"cobre (pc)": 0,
                       "prata (pp)": 0,
                       "electro (pe)": 0,
                       "ouro (po)": 0,
-                      "platina (pl)": 0
-        }
-        self.expertise = []
-        self.language = 0
-        self.idiom = []
-        self.trend = PersonaInterface.trend_definition()
-
-        self.roll_dices = {
+                      "platina (pl)": 0}
+        self.dices = {
             "rolls": {'strength': 0, 'dexterity': 0,
                       'constitution': 0, 'intelligence': 0,
                       'wisdom': 0, 'charisma': 0},
             "modifiers": {'strength': 0, 'dexterity': 0,
                           'constitution': 0, 'intelligence': 0,
-                          'wisdom': 0, 'charisma': 0}
-        }
-        self.dices = PersonaInterface.status(self.roll_dices)
-        self.race = PersonaInterface.build_race(race)
-        self.person_class = PersonaInterface.build_class(chosen_class)
-        self.magic = {"tricks": list,
-                      "spells": {"0": None,
-                                 "1": None}}
+                          'wisdom': 0, 'charisma': 0}}
+        self.magic = {"spells": {"0": {str: []},
+                                 "1": {str: []}}}
+        self.background_format = {"name": str,
+                                  "type": str,
+                                  "personality_trait": [str, str],
+                                  "ideal": str,
+                                  "bond": str,
+                                  "flaw": str}
 
-        self.background_format = {"name": None,
-                                  "type": None,
-                                  "personality_trait": None,
-                                  "ideal": None,
-                                  "bond": None,
-                                  "flaw": None}
+    def __set_name__(self, name):
+        self.name = name
 
-        self.antecedent = PersonaInterface.background_settings(self, background)
-
-    @staticmethod
-    def build_race(race):
+    def __set_race__(self, race):
         try:
-            race = re.sub('[^A-Z]', '', unidecode.unidecode(race.upper()))
-            print(race)
+            race = re.sub('[0-9]', '', unidecode(race.upper()))
             match race:
                 case "ANAO":
-                    return anao.Anao()
+                    self.race = anao.Anao()
                 case "DRACONATO":
-                    return draconato.Draconato()
+                    self.race = draconato.Draconato()
                 case "HUMANO":
-                    return humano.Humano()
+                    self.race = humano.Humano()
         except Exception as e:
-            print(e)
-            return e
+            sys.exit(f"ERRO AO DEFINIR RAÇA DO PERSONAGEM: {e}")
 
-    @staticmethod
-    def build_class(person_class):
+    def __set_class__(self, person_class):
         try:
+            person_class = re.sub('[^A-Z]', '', unidecode(person_class.upper()))
             match person_class.upper():
                 case "BARBARO":
-                    return barbaro.Barbaro()
+                    self.person_class = barbaro.Barbaro()
                 case "LADINO":
-                    return ladino.Ladino()
+                    self.person_class = ladino.Ladino()
                 case "BRUXO":
-                    return bruxo.Bruxo()
+                    self.person_class = bruxo.Bruxo()
         except Exception as e:
-            print(e)
-            return e
+            sys.exit(f"ERRO AO DEFINIR CLASSE DO PERSONAGEM: {e}")
 
-    @staticmethod
-    def status(roll_dices):
-        for i in roll_dices["rolls"]:
+    def __set_status__(self):
+        for i in self.dices["rolls"]:
             total, dice = 0, []
             for x in range(4):
                 dice.append(random.randint(1, 6))
             dice.remove(min(dice))
             for m in dice:
                 total += m
-            roll_dices["rolls"][i] = total
-        return roll_dices
+            self.dices["rolls"][i] = total
 
-    @staticmethod
-    def trend_definition():
+    def __set_trend__(self):
         opt = ["Leal e Bom", "Leal e Neutro", "Leal e Mau"
                "Neutro e Bom", "Neutro e Mau", "Neutro"
                "Caótico e Bom", "Caótico e Neutro", "Caótico e Mau"]
-        trend = random.choice(opt)
-        return trend
+        self.trend = random.choice(opt)
 
-    @staticmethod
-    def background_settings(self, background):
-        choices = ["ARTESAODEGUILDA", "ACOLITO", "CHARLATAO"]
+    def __set_background__(self, background):
+        choices = ["ARTESAO DE GUILDA", "ACOLITO", "CHARLATAO"]
         if background.upper() is None:
             background_name = random.choice(choices)
         else:
-            background_name = re.sub("[^A-Z]", "", unidecode.unidecode(background.upper()))
+            background_name = re.sub("[0-9]", "", unidecode(background.upper()))
             if background_name not in choices:
                 background_name = random.choice(choices)
         match background_name:
-            case "ARTESAODEGUILDA":
-                return artesaoDeGuilda.ArtesaoDeGuilda(self)
+            case "ARTESAO DE GUILDA":
+                artesaoDeGuilda.ArtesaoDeGuilda(self)
             case "ACOLITO":
                 pass
             case "CHARLATAO":
                 pass
+
+    def director(self, name: str, race: str, chosen_class: str, background: str):
+        PersonaInterface.__set_name__(self, name)
+        PersonaInterface.__set_trend__(self)
+        PersonaInterface.__set_race__(self, race)
+        PersonaInterface.__set_class__(self, chosen_class)
+        PersonaInterface.__set_status__(self)
+        PersonaInterface.__set_background__(self, background)

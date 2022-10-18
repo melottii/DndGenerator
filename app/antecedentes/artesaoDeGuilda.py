@@ -74,7 +74,7 @@ class ArtesaoDeGuilda(Antecedente):
         personagem.background_format["flaw"] = ArtesaoDeGuilda.bcgd_flaw(self)
         personagem.expertise.append('Intuição')
         personagem.expertise.append('Persuasão')
-        personagem.language += 1
+        personagem.idiom["rand"] += 1
         personagem.equip.append("Conjunto de ferramentas de artesão")
         personagem.equip.append("Carta de apresentação da sua guilda")
         personagem.equip.append("Conjunto de roupas de viajante")

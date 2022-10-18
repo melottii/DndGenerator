@@ -3,7 +3,7 @@ import random
 from builders.Antecedente import Antecedente
 
 
-class ArtesaoDeGuilda(Antecedente):
+class Acolito(Antecedente):
     def __init__(self):
         super().__init__()
         self.definer = ['Mercador De Guilda (Variant)',
@@ -66,49 +66,34 @@ class ArtesaoDeGuilda(Antecedente):
                      'Eu sou terrivelmente invejoso com qualquer um que possa ofuscar meu ofício. Todo lugar que eu '
                      'vou, estou cercado de rivais.']
 
-        self.background_format = ArtesaoDeGuilda.background_settings(self)
+        self.background_format = Acolito.__set_background__(self)
 
-    def get_name(self):
-        return "ANTECEDENTE: " + "ARTESÃO DE GUILDA"
+    def __getattribute__(self, item):
+        print(item)
 
-    def get_type(self):
-        return "VARIAÇÃO DO ANTECEDENTE: " + self.background_format["type"]
-
-    def get_personality_trait(self):
-        return f"TRAÇOS DE PERSONALIDADE 1: {self.background_format['personality_trait'][0]}\n"\
-               f"TRAÇOS DE PERSONALIDADE 2: {self.background_format['personality_trait'][1]}"
-
-    def get_ideal(self):
-        return "IDEAL: " + self.background_format["ideal"]
-
-    def get_bond(self):
-        return "VINCULO: " + self.background_format["bond"]
-
-    def get_flaw(self):
-        return "DEFEITO: " + self.background_format["flaw"]
-
-    def background_settings(self):
-        self.background_format = {"type": ArtesaoDeGuilda.bcgd_type(self),
-                                  "personality_trait": ArtesaoDeGuilda.bcgd_personality_trait(self),
-                                  "ideal": ArtesaoDeGuilda.bcgd_ideal(self), "bond": ArtesaoDeGuilda.bcgd_bond(self),
-                                  "flaw": ArtesaoDeGuilda.bcgd_flaw(self)}
+    def __set_background__(self):
+        self.background_format = {"type": Acolito.__set_type__(self),
+                                  "personality_trait": Acolito.__set_personality_trait__(self),
+                                  "ideal": Acolito.__set_ideal__(self),
+                                  "bond": Acolito.__set_bond__(self),
+                                  "flaw": Acolito.__set_ideal__(self)}
 
         return self.background_format
 
-    def bcgd_type(self):
+    def __set_type__(self):
         return random.choice(self.definer)
 
-    def bcgd_personality_trait(self):
+    def __set_personality_trait__(self):
         c1 = random.choice(self.personality_trait)
         self.personality_trait.remove(c1)
         c2 = random.choice(self.personality_trait)
         return [c1, c2]
 
-    def bcgd_ideal(self):
+    def __set_ideal__(self):
         return random.choice(self.ideal)
 
-    def bcgd_bond(self):
+    def __set_bond__(self):
         return random.choice(self.bond)
 
-    def bcgd_flaw(self):
+    def __set_flaw__(self):
         return random.choice(self.flaw)

@@ -5,10 +5,7 @@ from builders.Usuario import Usuario
 class DndGenerator:
     def __init__(self):
         self.user = Usuario("Matheus", "matheus.melotti@gmail.com")
-        self.character = PersonaInterface("Durat Diablo",
-                                          "Anão",
-                                          "Ladino",
-                                          "Artesao De Guilda")
+        self.character = PersonaInterface()
 
     def printa_usuario(self):
         print(self.user.nome)
@@ -18,17 +15,19 @@ class DndGenerator:
         print(self.character.race.get_name())
         print(self.character.person_class.get_name())
         print(self.character.trend)
+        print(self.character.money)
         print(self.character.dices["rolls"])
         print(self.character.dices["modifiers"])
-        print(self.character.antecedent.get_name(self.character))
-        print(self.character.antecedent.get_type(self.character))
-        print(self.character.antecedent.get_personality_trait(self.character))
-        print(self.character.antecedent.get_ideal(self.character))
-        print(self.character.antecedent.get_flaw(self.character))
-        print(self.character.antecedent.get_bond(self.character))
+        print(self.character.background_format["name"])
+        print(self.character.background_format["type"])
+        print(self.character.background_format["personality_trait"][0])
+        print(self.character.background_format["personality_trait"][1])
+        print(self.character.background_format["ideal"])
+        print(self.character.background_format["flaw"])
+        print(self.character.background_format["bond"])
 
 
 if __name__ == "__main__":
     first_person = DndGenerator()
-    first_person.printa_usuario()
+    first_person.character.director("Durat Diablo", "Anão", "Ladino", "Artesao De Guilda")
     first_person.printa_personagem()
