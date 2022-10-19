@@ -3,97 +3,105 @@ from abc import ABC, abstractmethod
 class Raca(ABC):
 
     @abstractmethod
-    def get_nome(self):
+    def __get_name__(self):
         pass
     
     @abstractmethod
-    def set_nome(self, nome):
+    def __set_name__(self, name):
         pass
 
     @abstractmethod
-    def get_descricao(self):
+    def __get_description__(self):
         pass
     
     @abstractmethod
-    def set_desricao(self, descricao):
+    def __set_description__(self, description):
         pass
 
     @abstractmethod
-    def get_restricoes(self):
+    def __get_restrictions__(self):
         pass
     
     @abstractmethod
-    def set_restricoes(self, restricoes):
+    def __set_restrictions__(self, restrictions):
         pass
     
     @abstractmethod
-    def get_habilidadesUnicas(self):
+    def __get_skills__(self):
         pass
     
     @abstractmethod
-    def set_habilidadesUnicas(self, habilidadesUnicas):
+    def __set_skills__(self, skills):
         pass
 
     @abstractmethod
-    def add_habilidade(self, habilidade):
+    def __add_skill__(self, skill):
         pass
 
     @abstractmethod
-    def get_magias(self):
+    def __get_magic__(self):
         pass
     
     @abstractmethod
-    def set_magias(self, magias):
+    def __set_magic__(self, magic):
         pass
 
     @abstractmethod
-    def get_forca(self):
+    def __get_stats__(self):
         pass
     
     @abstractmethod
-    def set_forca(self, forca):
+    def __set_stats__(self, stats):
         pass
 
     @abstractmethod
-    def get_destreza(self):
+    def __get_strength__(self):
         pass
     
     @abstractmethod
-    def set_destreza(self, destreza):
-        pass
-    
-    @abstractmethod
-    def get_constituicao(self):
-        pass
-    
-    @abstractmethod
-    def set_constituicao(self, constituicao):
-        pass
-    
-    @abstractmethod
-    def get_sabedoria(self):
-        pass
-    
-    @abstractmethod
-    def set_sabedoria(self, sabedoria):
-        pass
-    
-    @abstractmethod
-    def get_inteligencia(self):
-        pass
-    
-    @abstractmethod
-    def set_inteligencia(self, inteligencia):
+    def __set_strength__(self, strength):
         pass
 
     @abstractmethod
-    def get_carisma(self):
+    def __get_dexterity__(self):
         pass
     
     @abstractmethod
-    def set_carisma(self, carisma):
+    def __set_dexterity__(self, dexterity):
         pass
     
     @abstractmethod
-    def add_atributo(self, atributo, quantidade):
+    def __get_constituition__(self):
+        pass
+    
+    @abstractmethod
+    def __set_constituition__(self, constituition):
+        pass
+    
+    @abstractmethod
+    def __get_wisdom__(self):
+        pass
+    
+    @abstractmethod
+    def __set_wisdom__(self, wisdom):
+        pass
+    
+    @abstractmethod
+    def __get_intelligence__(self):
+        pass
+    
+    @abstractmethod
+    def __set_intelligence__(self, intelligence):
+        pass
+
+    @abstractmethod
+    def __get_charisma__(self):
+        pass
+    
+    @abstractmethod
+    def __set_charisma__(self, charisma):
+        pass
+    
+    @abstractmethod
+    def __add_atributo__(self, atributo, quantidade):
         pass

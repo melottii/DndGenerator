@@ -3,12 +3,12 @@ from models.Raca import Raca
 class Anao(Raca):
     def __init__(self):
         super().__init__()
-        self.nome = "Anão"
-        self.descricao = """
+        self.name = "Anão"
+        self.description = """
 Audazes e resistentes, os anões são conhecidos como hábeis guerreiros, mineradores e trabalhadores em pedra e metal. Embora tenham menos de 1,50 metro de altura, os anões são tão largos e compactos que podem pesar tanto quanto um humano 60 centímetros mais alto. Sua coragem e resistência compete facilmente com qualquer povo mais alto. A pele dos anões varia do marrom escuro a um matiz mais pálido, tingido de vermelho, mas os tons mais comuns são o castanho claro ou bronzeado, como certos tons terrosos. O cabelo é longo, mas de estilo simples, geralmente negro, cinzento ou castanho, embora anões mais pálidos frequentemente possuem cabelos ruivos. Anões machos valorizam altamente suas barbas e preparam-nas com cuidado.
 """
-        self.restricoes = []
-        self.habilidadesUnicas = [
+        self.restrictions = []
+        self.skills = [
             "Aumento no Valor de Habilidade. Seu valor de Constituição aumenta em 2.",
             "Idade. Anões tornam-se maduros na mesma proporção que os humanos, mas são considerados jovens até atingirem a idade de 50 anos. Em média, eles vivem 350 anos.",
             "Tendência. A maioria dos anões é leal, pois acreditam firmemente nos benefícios de uma sociedade bem organizada. Eles tendem para o bem, com um forte senso de honestidade e uma crença de que todos merecem compartilhar os benefícios de uma ordem social justa.",
@@ -22,90 +22,81 @@ Audazes e resistentes, os anões são conhecidos como hábeis guerreiros, minera
             "Idiomas. Você pode falar, ler e escrever Comum e Anão. O idioma Anão é repleto de consoantes duras e sons guturais, e essa característica influencia, como um sotaque, qualquer outro idioma que o anão falar.",
             "Sub-raça. Existem duas sub-raças principais de anões nos mundos de D&D: anões da colina e anões da montanha. Você deve escolher uma dessas sub-raças. "
         ]
-        self.magias = []
-        self.forca = 0
-        self.destreza = 0
-        self.constituicao = 2
-        self.sabedoria = 0
-        self.inteligencia = 0
-        self.carisma = 0
-
-    def get_nome(self):
-        return self.nome
-    
-    def set_nome(self, nome):
-        self.nome = nome
-
-    def get_descricao(self):
-        return self.descricao
-    
-    def set_desricao(self, descricao):
-        self.descricao = descricao
-
-    def get_restricoes(self):
-        return self.restricoes
-    
-    def set_restricoes(self, restricoes):
-        self.restricoes = restricoes
-    
-    def get_habilidadesUnicas(self):
-        return self.habilidadesUnicas
-    
-    def set_habilidadesUnicas(self, habilidadesUnicas):
-        self.habilidadesUnicas = habilidadesUnicas
-
-    def add_habilidade(self, habilidade):
-        self.habilidadesUnicas.append(habilidade)
-
-    def get_magias(self):
-        return self.magias
-    
-    def set_magias(self, magias):
-        self.magias = magias
-
-    def get_forca(self):
-        return self.forca
-    
-    def set_forca(self, forca):
-        self.forca = forca
-
-    def get_destreza(self):
-        return self.destreza
-    
-    def set_destreza(self, destreza):
-        self.destreza = destreza
-    
-    def get_constituicao(self):
-        return self.constituicao
-    
-    def set_constituicao(self, constituicao):
-        self.constituicao = constituicao
-    
-    def get_sabedoria(self):
-        return self.sabedoria
-    
-    def set_sabedoria(self, sabedoria):
-        self.sabedoria = sabedoria
-    
-    def get_inteligencia(self):
-        return self.inteligencia
-    
-    def set_inteligencia(self, inteligencia):
-        self.inteligencia = inteligencia
-
-    def get_carisma(self):
-        return self.carisma
-    
-    def set_carisma(self, carisma):
-        self.carisma = carisma
-    
-    def add_atributo(self, atributo, quantidade):
-        atributos = {
-            1: self.set_forca(self.forca+quantidade),
-            2: self.set_destreza(self.destreza+quantidade),
-            3: self.set_constituicao(self.contituicao+quantidade),
-            4: self.set_sabedoria(self.sabedoria+quantidade),
-            5: self.set_inteligencia(self.inteligencia+quantidade),
-            6: self.set_carisma(self.carisma+quantidade),
+        self.magic = {}
+        self.stats = {
+            "strength": 0,
+            "dexterity": 0,
+            "constituition": 2,
+            "intelligence": 0,
+            "wisdom": 0,
+            "charisma": 0,
         }
-        atributos[atributo]
+
+    def __get_name__(self):
+        return self.name
+    
+    def __set_name__(self, name):
+        self.name = name
+
+    def __get_description__(self):
+        return self.description
+    
+    def __set_desricao__(self, description):
+        self.description = description
+
+    def __get_restrictions__(self):
+        return self.restrictions
+    
+    def __set_restrictions__(self, restrictions):
+        self.restrictions = restrictions
+    
+    def __get_skills__(self):
+        return self.skills
+    
+    def __set_skills__(self, skills):
+        self.skills = skills
+
+    def __add_skill__(self, skill):
+        self.skills.append(skill)
+
+    def __get_magic__(self):
+        return self.magic
+    
+    def __set_magic__(self, magic):
+        self.magic = magic
+
+    def __get_strength__(self):
+        return self.stats["strength"]
+    
+    def __set_strength__(self, strength):
+        self.stats["strength"] = strength
+
+    def __get_dexterity__(self):
+        return self.stats["dexterity"]
+    
+    def __set_dexterity__(self, dexterity):
+        self.stats["dexterity"] = dexterity
+    
+    def __get_constituition__(self):
+        return self.stats["constituition"]
+    
+    def __set_constituition__(self, constituition):
+        self.self.stats["constituition"] = constituition
+    
+    def __get_wisdom__(self):
+        return self.stats["wisdom"]
+    
+    def __set_wisdom__(self, wisdom):
+        self.stats["wisdom"] = wisdom
+    
+    def __get_intelligence__(self):
+        return self.stats["intelligence"]
+    
+    def __set_intelligence__(self, intelligence):
+        return self.stats["intelligence"] = intelligence
+
+    def __get_charisma__(self):
+        return self.stats["charisma"]
+    
+    def __set_charisma__(self, charisma):
+        self.stats["charisma"] = charisma
