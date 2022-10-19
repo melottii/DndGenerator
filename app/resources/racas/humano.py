@@ -1,4 +1,4 @@
-from builders.Classe import Classe
+from app.builders.Classe import Classe
 
 
 class Humano(Classe):

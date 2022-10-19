@@ -1,6 +1,6 @@
 import random
 
-from builders.Antecedente import Antecedente
+from app.builders.Antecedente import Antecedente
 
 
 class Acolito(Antecedente):

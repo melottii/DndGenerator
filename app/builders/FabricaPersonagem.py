@@ -5,9 +5,9 @@ import re
 import sys
 from unidecode import unidecode
 
-from app.classes import barbaro, bruxo, ladino
-from app.racas import anao, draconato, humano
-from app.antecedentes import artesaoDeGuilda, acolito, charlatao
+from app.resources.classes import bruxo, barbaro, ladino
+from app.resources.racas import draconato, humano, anao
+from app.resources.antecedentes import acolito, artesaoDeGuilda, charlatao
 
 
 class PersonaInterface(ABC):

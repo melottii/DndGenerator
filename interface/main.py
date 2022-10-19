@@ -1,5 +1,5 @@
-from builders.FabricaPersonagem import PersonaInterface
-from builders.Usuario import Usuario
+from app.builders.FabricaPersonagem import PersonaInterface
+from app.builders.Usuario import Usuario
 
 
 class DndGenerator:
