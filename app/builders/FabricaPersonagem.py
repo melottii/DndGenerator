@@ -6,7 +6,7 @@ import sys
 from unidecode import unidecode
 
 from app.resources.classes import bruxo, barbaro, ladino
-from app.resources.racas import draconato, humano, anao
+from app.resources.racas import halfling, anao
 from app.resources.antecedentes import acolito, artesaoDeGuilda, charlatao
 
 
@@ -19,7 +19,10 @@ class PersonaInterface(ABC):
         self.knowledge = []
         self.idiom = {"rand": 0, "choice": []}
         self.trend = str
-        self.race = str
+        self.race = {"name": str,
+                     "description": [],
+                     "restrictions": [],
+                     "skills": []}
         self.person_class = str
         self.money = {"cobre (pc)": 0,
                       "prata (pp)": 0,
@@ -33,8 +36,8 @@ class PersonaInterface(ABC):
             "modifiers": {'strength': 0, 'dexterity': 0,
                           'constitution': 0, 'intelligence': 0,
                           'wisdom': 0, 'charisma': 0}}
-        self.magic = {"spells": {"0": {str: []},
-                                 "1": {str: []}}}
+        self.magic = {"0": {str: []},
+                      "1": {str: []}}
         self.background_format = {"name": str,
                                   "type": str,
                                   "personality_trait": [str, str],
@@ -51,10 +54,8 @@ class PersonaInterface(ABC):
             match race:
                 case "ANAO":
                     self.race = anao.Anao()
-                case "DRACONATO":
-                    self.race = draconato.Draconato()
-                case "HUMANO":
-                    self.race = humano.Humano()
+                case "HALFLING":
+                    self.race = halfling.Halfling()
         except Exception as e:
             sys.exit(f"ERRO AO DEFINIR RAÇA DO PERSONAGEM: {e}")
 

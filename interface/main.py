@@ -12,7 +12,7 @@ class DndGenerator:
         print(self.user.email)
 
     def printa_personagem(self):
-        print(self.character.race.get_name())
+        print(self.character.race.name)
         print(self.character.person_class.get_name())
         print(self.character.trend)
         print(self.character.money)
