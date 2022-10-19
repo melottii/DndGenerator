@@ -3,97 +3,93 @@ import random
 from builders.Antecedente import Antecedente
 
 
-class ArtesaoDeGuilda(Antecedente):
-    def __init__(self):
+class Charlatao(Antecedente):
+    def __init__(self, personagem):
         super().__init__()
-        self.definer = ['Mercador De Guilda (Variant)',
-                        'Alquimistas e boticários',
-                        'Armeiros, chaveiros e ferreiros finos',
-                        'Cervejeiros, destiladores e viticultores',
-                        'Calígrafos, escribas e escrivães',
-                        'Carpinteiros, construtores de telhado e estucadores',
-                        'Cartógrafos, agrimensores e desenhistas',
-                        'Remendões e sapateiros',
-                        'Cozinheiros e padeiros',
-                        'Vidraceiros e escultores',
-                        'Joalheiros e lapidários',
-                        'Coureiros, peleiros e curtidores',
-                        'Pedreiros e marceneiros',
-                        'Pintores, iluminadores e construtores de placas',
-                        'Oleiros e telheiros',
-                        'Armadores e veleiros',
-                        'Ferreiros e forjadores',
-                        'Funileiros, latoeiros e galheteiros',
-                        'Fabricantes de carroças e fabricantes de rodas',
-                        'Tecelões e tintureiros',
-                        'Entalhadores, tanoeiros e construtores de arcos']
-        self.personality_trait = ['Eu acredito que tudo que valha a pena fazer, vale a pena ser feito direito. Eu não '
-                                  'posso evitar – Eu sou perfeccionista.',
-                                  'Eu sou um esnobe que olha de cima a baixo aqueles que não sabem apreciar artes '
-                                  'requintadas.',
-                                  'Eu sempre quero aprender como as coisas funcionam e o que deixa as pessoas '
-                                  'motivadas.',
-                                  'Eu sou cheio de aforismos espirituosos e tenho um proverbio para cada ocasião. ',
-                                  'Eu sou grosso com as pessoas que não tem o mesmo comprometimento que eu com o '
-                                  'trabalho duro e honesto.',
-                                  'Eu gosto de falar longamente sobre minha profissão.',
-                                  'Eu não gasto meu dinheiro facilmente e vou barganhar incansavelmente para conseguir '
-                                  'o melhor acordo possível.',
-                                  'Eu sou bem conhecido pelo meu trabalho e quero ter certeza que todos o apreciam. '
-                                  'Eu sempre fico surpreso '
-                                  'quando conheço pessoas que não ouviram falar de mim.']
-        self.ideal = ['Comunidade. É dever de todo cidadão civilizado fortalecer os elos da comunidade e a segurança '
-                      'da civilização.',
-                      'Generosidade. Meus talentos me foram dados para que eu pudesse usá-los para beneficiar o mundo. '
-                      '(Bom)',
-                      'Liberdade. Todos deveriam ser livres para perseguir seus próprios meios de vida. (Caótico)',
-                      'Ganância. Eu só estou aqui pelo dinheiro. (Mau)',
-                      'Povo. Eu sou cometido com o povo com quem me importo, não com ideias.',
-                      'Aspiração. Eu trabaalho duro para ser o melhor no meu ofício.']
-        self.bond = ['A oficina onde aprendi meu negócio é o local mais importante do mundo pra mim.',
-                     'Eu criei um trabalho incrível para alguém, mas descobri que ele não era merecedor de recebê-lo. '
-                     'Ainda estou à procura de alguém que seja merecedor.',
-                     'Eu tenho uma grande dívida para com minha guilda por fazer de mim a pessoa que sou hoje.',
-                     'Eu busco riqueza para conseguir o amor de alguém.',
-                     'Um dia eu voltarei para a minha guilda e provarei que sou o maior artesão dentre eles.',
-                     'Eu irem me vingar das forças malignas que destruíram meu local de negócios e arruinaram meu '
-                     'estilo de vida.']
-        self.flaw = ['Eu farei de tudo para pôr minha mãos em algo raro ou inestimável.',
-                     'Eu rapidamente presumo que alguém está tentando me trapacear.',
-                     'Ninguém nunca poderá saber que eu, certa vez, roubei dinheiro dos cofres da guilda.',
-                     'Eu nunca estou satisfeito com o que tenho – eu sempre quero mais.',
-                     'Eu mataria para adquirir um título de nobreza.',
-                     'Eu sou terrivelmente invejoso com qualquer um que possa ofuscar meu ofício. Todo lugar que eu '
-                     'vou, estou cercado de rivais.']
+        self.definer = ['Eu trapaceio em jogos de azar.',
+                        'Eu falsifico moedas ou forjo documentos.',
+                        'Eu me infiltro na vida das pessoas para descobrir suas fraquezas e ficar com suas fortunas.',
+                        'Eu troco de identidade como troco de roupa.',
+                        'Eu faço furtos rápidos nas esquinas das ruas.',
+                        'Eu convenço as pessoas que tranqueiras inúteis valem seu suado dinheiro.']
+        self.personality_trait = ['Eu me apaixono e desapaixono facilmente, e estou sempre em busca de alguém.',
+                                  'Eu tenho uma piada para cada ocasião, especialmente ocasiões em que o humor é '
+                                  'inapropriado.',
+                                  'Bajulação é meu truque predileto para conseguir o que eu quero.',
+                                  'Eu sou um jogador nato que não consegue resistir a se arriscar por uma possível '
+                                  'ecompensa.',
+                                  'Eu minto sobre quase tudo, mesmo quando não existe qualquer boa razão.',
+                                  'Sarcasmo e insultos são minhas armas prediletas.',
+                                  'Eu tenho vários símbolos sagrados comigo, e invoco a divindade que seja mais útil '
+                                  'em cada '
+                                  'dado momento.',
+                                  'Eu furto qualquer coisa que eu vejo que possa ter algum valor.']
+        self.ideal = ['Independência. Sou um espirito livre – ninguém me diz o que fazer.',
+                      'Justiça. Eu nunca roubo de pessoas que não podem perder algumas moedas.',
+                      'Caridade. Eu distribuo o dinheiro que adquiro com as pessoas que realmente precisam.',
+                      'Criatividade. Eu nunca faço a mesma trapaça duas vezes.',
+                      'Amizade. Bens materiais vem e vão. Os laços de amizade duram pra sempre.',
+                      'Aspiração. Eu estou determinado a fazer algo por mim mesmo.']
+        self. bond = ['Eu extorqui a pessoa errada e devo trabalhar para que esse indivíduo nunca mais cruze meu '
+                      'caminho ou o das pessoas com quem me importo.',
+                      'Eu devo tudo ao meu mentor – uma pessoa terrível que, provavelmente, está apodrecendo na cadeia '
+                      'em algum lugar.',
+                      'Em algum lugar por ai, eu tenho um filho que não me conhece. Eu estou tornando o mundo melhor '
+                      'para ele.',
+                      'Eu vim de uma família nobre e, um dia, irei reivindicar minhas terras e título daqueles que o '
+                      'roubaram de mim.',
+                      'Uma pessoa poderosa matou alguém que eu amava. Algum dia, em breve, terei minha vingança.',
+                      'Eu enganei e arruinei a vida de uma pessoa que não merecia. Eu busco reparar meus erros, mas '
+                      'talvez nunca seja capaz de me perdoar.']
+        self.flaw = ['Não resisto um rostinho bonito.',
+                     'Estou sempre com dividas. Eu gasto meus lucros ilícitos com luxurias decadentes mais rápido do '
+                     'que os ganho...',
+                     'Estou convencido que ninguém pode me enganar da forma que eu engano os outros.',
+                     'Eu sou ganancioso demais pra meu próprio bem. Eu não consigo resistir a me arriscar se tiver '
+                     'dinheiro envolvido.',
+                     'Eu não resisto a enganar pessoas que são mais poderosas que eu.',
+                     'Eu odeio admitir e vou me odiar por isso, mas, eu vou correr e salvar minha própria pele se as '
+                     'coisas engrossarem.']
 
-        self.background_format = ArtesaoDeGuilda.background_settings(self)
+        personagem.background_format["name"] = "CHARLATÃO."
+        personagem.background_format["type"] = Charlatao.bcgd_type(self)
+        personagem.background_format["personality_trait"] = Charlatao.bcgd_personality_trait(self)
+        personagem.background_format["ideal"] = Charlatao.bcgd_ideal(self)
+        personagem.background_format["bond"] = Charlatao.bcgd_bond(self)
+        personagem.background_format["flaw"] = Charlatao.bcgd_flaw(self)
+        personagem.expertise.append('Enganação')
+        personagem.expertise.append('Prestidigitação.')
+        personagem.equip.append("Um conjunto de roupas finas.")
+        personagem.equip.append("Um kit de disfarce.")
+        personagem.equip.append("Ferramentas de trapaça.")
+        personagem.equip.append("Á sua escolha: dez garrafas tampadas preenchidas com líquidos coloridos.")
+        personagem.equip.append("Conjunto de dados viciados.")
+        personagem.equip.append(random.choice(["Um baralho de cartas marcadas",
+                                               "Um anel de sinete de um duque imaginário"]))
+        personagem.equip.append("Algibeira.")
+        personagem.knowledge.append("Kit de Disfarce.")
+        personagem.knowledge.append("Kit de Falsificação.")
+        personagem.knowledge.append("Característica: Identidade Falsa")
+        personagem.money["ouro (po)"] += 15
 
-    def get_name(self):
-        return "ANTECEDENTE: " + "ARTESÃO DE GUILDA"
+    def get_name(self, personagem):
+        return "ANTECEDENTE: " + personagem.background_format["name"]
 
-    def get_type(self):
-        return "VARIAÇÃO DO ANTECEDENTE: " + self.background_format["type"]
+    def get_type(self, personagem):
+        return "VARIAÇÃO DO ANTECEDENTE: " + personagem.background_format["type"]
 
-    def get_personality_trait(self):
-        return f"TRAÇOS DE PERSONALIDADE 1: {self.background_format['personality_trait'][0]}\n"\
-               f"TRAÇOS DE PERSONALIDADE 2: {self.background_format['personality_trait'][1]}"
+    def get_personality_trait(self, personagem):
+        return f"TRAÇOS DE PERSONALIDADE 1: {personagem.background_format['personality_trait'][0]}\n" \
+               f"TRAÇOS DE PERSONALIDADE 2: {personagem.background_format['personality_trait'][1]}"
 
-    def get_ideal(self):
-        return "IDEAL: " + self.background_format["ideal"]
+    def get_ideal(self, personagem):
+        return "IDEAL: " + personagem.background_format["ideal"]
 
-    def get_bond(self):
-        return "VINCULO: " + self.background_format["bond"]
+    def get_bond(self, personagem):
+        return "VINCULO: " + personagem.background_format["bond"]
 
-    def get_flaw(self):
-        return "DEFEITO: " + self.background_format["flaw"]
-
-    def background_settings(self):
-        self.background_format = {"type": ArtesaoDeGuilda.bcgd_type(self),
-                                  "personality_trait": ArtesaoDeGuilda.bcgd_personality_trait(self),
-                                  "ideal": ArtesaoDeGuilda.bcgd_ideal(self), "bond": ArtesaoDeGuilda.bcgd_bond(self),
-                                  "flaw": ArtesaoDeGuilda.bcgd_flaw(self)}
-
-        return self.background_format
+    def get_flaw(self, personagem):
+        return "DEFEITO: " + personagem.background_format["flaw"]
 
     def bcgd_type(self):
         return random.choice(self.definer)

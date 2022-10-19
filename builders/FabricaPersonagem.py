@@ -7,7 +7,7 @@ from unidecode import unidecode
 
 from app.classes import barbaro, bruxo, ladino
 from app.racas import anao, draconato, humano
-from app.antecedentes import artesaoDeGuilda
+from app.antecedentes import artesaoDeGuilda, acolito, charlatao
 
 
 class PersonaInterface(ABC):
@@ -16,6 +16,7 @@ class PersonaInterface(ABC):
         self.body = []
         self.equip = []
         self.expertise = []
+        self.knowledge = []
         self.idiom = {"rand": 0, "choice": []}
         self.trend = str
         self.race = str
@@ -98,9 +99,9 @@ class PersonaInterface(ABC):
             case "ARTESAO DE GUILDA":
                 artesaoDeGuilda.ArtesaoDeGuilda(self)
             case "ACOLITO":
-                pass
+                acolito.Acolito(self)
             case "CHARLATAO":
-                pass
+                charlatao.Charlatao(self)
 
     def director(self, name: str, race: str, chosen_class: str, background: str):
         PersonaInterface.__set_name__(self, name)
