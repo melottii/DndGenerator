@@ -29,5 +29,8 @@ class DndGenerator:
 
 if __name__ == "__main__":
     first_person = DndGenerator()
-    first_person.character.director("Durat Diablo", "Anão", "Ladino", "CHARLATÃO")
+    first_person.character.director("Durat Diablo",
+                                    "Anão",
+                                    "Ladino",
+                                    "Charlatão")
     first_person.printa_personagem()

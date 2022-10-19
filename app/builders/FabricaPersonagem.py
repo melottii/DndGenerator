@@ -42,10 +42,10 @@ class PersonaInterface(ABC):
                                   "bond": str,
                                   "flaw": str}
 
-    def __set_name__(self, name):
+    def __set_name__(self, name: str):
         self.name = name
 
-    def __set_race__(self, race):
+    def __set_race__(self, race: str):
         try:
             race = re.sub('[0-9]', '', unidecode(race.upper()))
             match race:
@@ -58,7 +58,7 @@ class PersonaInterface(ABC):
         except Exception as e:
             sys.exit(f"ERRO AO DEFINIR RAÇA DO PERSONAGEM: {e}")
 
-    def __set_class__(self, person_class):
+    def __set_class__(self, person_class: str):
         try:
             person_class = re.sub('[^A-Z]', '', unidecode(person_class.upper()))
             match person_class.upper():
@@ -87,7 +87,7 @@ class PersonaInterface(ABC):
                "Caótico e Bom", "Caótico e Neutro", "Caótico e Mau"]
         self.trend = random.choice(opt)
 
-    def __set_background__(self, background):
+    def __set_background__(self, background: str):
         choices = ["ARTESAO DE GUILDA", "ACOLITO", "CHARLATAO"]
         if background.upper() is None:
             background_name = random.choice(choices)
