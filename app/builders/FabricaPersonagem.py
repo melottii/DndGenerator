@@ -19,31 +19,22 @@ class PersonaInterface(ABC):
         self.knowledge = []
         self.idiom = {"rand": 0, "choice": []}
         self.trend = str
-        self.race = {"name": str,
-                     "description": [],
-                     "restrictions": [],
-                     "skills": []}
-        self.person_class = str
+        self.race = None
+        self.person_class = None
+        self.background = None
         self.money = {"cobre (pc)": 0,
                       "prata (pp)": 0,
                       "electro (pe)": 0,
                       "ouro (po)": 0,
                       "platina (pl)": 0}
-        self.dices = {
-            "rolls": {'strength': 0, 'dexterity': 0,
-                      'constitution': 0, 'intelligence': 0,
-                      'wisdom': 0, 'charisma': 0},
-            "modifiers": {'strength': 0, 'dexterity': 0,
-                          'constitution': 0, 'intelligence': 0,
-                          'wisdom': 0, 'charisma': 0}}
+        self.dices = {"rolls": {'strength': 0, 'dexterity': 0,
+                                'constitution': 0, 'intelligence': 0,
+                                'wisdom': 0, 'charisma': 0},
+                      "modifiers": {'strength': 0, 'dexterity': 0,
+                                    'constitution': 0, 'intelligence': 0,
+                                    'wisdom': 0, 'charisma': 0}}
         self.magic = {"0": {str: []},
                       "1": {str: []}}
-        self.background_format = {"name": str,
-                                  "type": str,
-                                  "personality_trait": [str, str],
-                                  "ideal": str,
-                                  "bond": str,
-                                  "flaw": str}
 
     def __set_name__(self, name: str):
         self.name = name
@@ -83,8 +74,8 @@ class PersonaInterface(ABC):
             self.dices["rolls"][i] = total
 
     def __set_trend__(self):
-        opt = ["Leal e Bom", "Leal e Neutro", "Leal e Mau"
-               "Neutro e Bom", "Neutro e Mau", "Neutro"
+        opt = ["Leal e Bom", "Leal e Neutro", "Leal e Mau",
+               "Neutro e Bom", "Neutro e Mau", "Neutro",
                "Caótico e Bom", "Caótico e Neutro", "Caótico e Mau"]
         self.trend = random.choice(opt)
 
@@ -98,11 +89,11 @@ class PersonaInterface(ABC):
                 background_name = random.choice(choices)
         match background_name:
             case "ARTESAO DE GUILDA":
-                artesaoDeGuilda.ArtesaoDeGuilda(self)
+                self.background = artesaoDeGuilda.ArtesaoDeGuilda(self)
             case "ACOLITO":
-                acolito.Acolito(self)
+                self.background = acolito.Acolito(self)
             case "CHARLATAO":
-                charlatao.Charlatao(self)
+                self.background = charlatao.Charlatao(self)
 
     def director(self, name: str, race: str, chosen_class: str, background: str):
         PersonaInterface.__set_name__(self, name)

@@ -1,4 +1,4 @@
-class Armaduras:
+class Equipamentos:
     def __init__(self):
         self.itens_po = {
             "nome": ["Ábaco", "Ácido (vidro)", "Água benta (frasco)", "Algemas", "Algibeira", "Aljava"],

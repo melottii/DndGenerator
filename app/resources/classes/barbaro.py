@@ -3,8 +3,7 @@ from app.builders.Classe import Classe
 
 class Barbaro(Classe):
     def __init__(self):
-        super().__init__()
-        self.name = "BARBARO"
+        super().__init__("BÁRBARO")
 
     def get_name(self):
-        return "CLASSE: " + self.name
+        return f"CLASSE: {self.name}"

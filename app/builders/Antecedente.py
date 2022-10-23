@@ -2,26 +2,35 @@ from abc import ABC, abstractmethod
 
 
 class Antecedente(ABC):
+    def __init__(self, name, equips, idiom, expertise, knowledge, money, background_format):
+        self.name = name
+        self.equips = equips
+        self.idiom = idiom
+        self.expertise = expertise
+        self.knowledge = knowledge
+        self.money = money
+        self.background_format = background_format
+
     @abstractmethod
-    def get_name(self, personagem):
+    def __get_name__(self, personagem):
         pass
 
     @abstractmethod
-    def get_type(self, personagem):
+    def __get_type__(self, personagem):
         pass
 
     @abstractmethod
-    def get_personality_trait(self, personagem):
+    def __get_personalityTrait__(self, personagem):
         pass
 
     @abstractmethod
-    def get_ideal(self, personagem):
+    def __get_ideal__(self, personagem):
         pass
 
     @abstractmethod
-    def get_bond(self, personagem):
+    def __get_bond__(self, personagem):
         pass
 
     @abstractmethod
-    def get_flaw(self, personagem):
+    def __get_flaw__(self, personagem):
         pass
