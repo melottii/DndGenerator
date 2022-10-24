@@ -6,9 +6,8 @@ import sys
 from unidecode import unidecode
 
 from app.resources.classes import bruxo, barbaro, ladino
-from app.resources.racas import halfling, anao
+from app.resources.racas import halfling_pes_leves, halfling_robusto, anao_colina, anao_montanha
 from app.resources.antecedentes import acolito, artesaoDeGuilda, charlatao
-
 
 class PersonaInterface(ABC):
     def __init__(self):
@@ -43,10 +42,15 @@ class PersonaInterface(ABC):
         try:
             race = re.sub('[0-9]', '', unidecode(race.upper()))
             match race:
-                case "ANAO":
-                    self.race = anao.Anao()
-                case "HALFLING":
-                    self.race = halfling.Halfling()
+                case "ANAO DA COLINA":
+                    self.race = anao_colina.AnaoColina()
+                case "ANAO DA MONTANHA":
+                    self.race = anao_montanha.AnaoMontanha()
+                case "HALFLING PÉS LEVES":
+                    self.race = halfling_pes_leves.HalflingPesLeves()
+                case "HALFLING ROBUSTO":
+                    self.race = halfling_robusto.HalflingRobusto()
+            self.race.__set_config__(self)
         except Exception as e:
             sys.exit(f"ERRO AO DEFINIR RAÇA DO PERSONAGEM: {e}")
 
@@ -64,14 +68,18 @@ class PersonaInterface(ABC):
             sys.exit(f"ERRO AO DEFINIR CLASSE DO PERSONAGEM: {e}")
 
     def __set_status__(self):
-        for i in self.dices["rolls"]:
+        for attribute in self.dices["rolls"].keys():
             total, dice = 0, []
             for x in range(4):
                 dice.append(random.randint(1, 6))
             dice.remove(min(dice))
             for m in dice:
                 total += m
-            self.dices["rolls"][i] = total
+            self.dices["rolls"][attribute] += total
+    
+    def __set_modifiers__(self):
+        for attribute in self.dices["rolls"].keys():
+            self.dices["modifiers"][attribute] = -5 + (self.dices["rolls"][attribute] // 2)
 
     def __set_trend__(self):
         opt = ["Leal e Bom", "Leal e Neutro", "Leal e Mau",
@@ -99,6 +107,7 @@ class PersonaInterface(ABC):
         PersonaInterface.__set_name__(self, name)
         PersonaInterface.__set_trend__(self)
         PersonaInterface.__set_race__(self, race)
-        PersonaInterface.__set_class__(self, chosen_class)
         PersonaInterface.__set_status__(self)
+        PersonaInterface.__set_modifiers__(self)
+        PersonaInterface.__set_class__(self, chosen_class)
         PersonaInterface.__set_background__(self, background)
