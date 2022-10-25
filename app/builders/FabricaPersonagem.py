@@ -9,6 +9,7 @@ from app.resources.classes import bruxo, barbaro, ladino
 from app.resources.racas import halfling_pes_leves, halfling_robusto, anao_colina, anao_montanha
 from app.resources.antecedentes import acolito, artesaoDeGuilda, charlatao
 
+
 class PersonaInterface(ABC):
     def __init__(self):
         self.name = str
@@ -40,24 +41,41 @@ class PersonaInterface(ABC):
 
     def __set_race__(self, race: str):
         try:
-            race = re.sub('[0-9]', '', unidecode(race.upper()))
-            match race:
+            choices = ["ANAO DA COLINA", "ANAO DA MONTANHA", "HALFLING PÉS LEVES", "HALFLING ROBUSTO"]
+            if race.upper() == "":
+                race_name = random.choice(choices)
+            else:
+                race_name = re.sub("[0-9]", "", unidecode(race.upper()))
+                if race_name not in choices:
+                    race_name = random.choice(choices)
+                else:
+                    sys.exit("INPUT INCORRETO DE CLASSE")
+
+            match race_name:
                 case "ANAO DA COLINA":
-                    self.race = anao_colina.AnaoColina()
+                    self.race = anao_colina.AnaoColina(self)
                 case "ANAO DA MONTANHA":
-                    self.race = anao_montanha.AnaoMontanha()
+                    self.race = anao_montanha.AnaoMontanha(self)
                 case "HALFLING PÉS LEVES":
-                    self.race = halfling_pes_leves.HalflingPesLeves()
+                    self.race = halfling_pes_leves.HalflingPesLeves(self)
                 case "HALFLING ROBUSTO":
-                    self.race = halfling_robusto.HalflingRobusto()
-            self.race.__set_config__(self)
+                    self.race = halfling_robusto.HalflingRobusto(self)
+
         except Exception as e:
             sys.exit(f"ERRO AO DEFINIR RAÇA DO PERSONAGEM: {e}")
 
     def __set_class__(self, person_class: str):
         try:
-            person_class = re.sub('[^A-Z]', '', unidecode(person_class.upper()))
-            match person_class.upper():
+            choices = ["BARBARO", "LADINO", "BRUXO"]
+            if person_class.upper() == "":
+                person_class_name = random.choice(choices)
+            else:
+                person_class_name = re.sub("[0-9]", "", unidecode(person_class.upper()))
+                if person_class_name not in choices:
+                    person_class_name = random.choice(choices)
+                else:
+                    sys.exit("INPUT INCORRETO DE CLASSE")
+            match person_class_name.upper():
                 case "BARBARO":
                     self.person_class = barbaro.Barbaro()
                 case "LADINO":
@@ -76,9 +94,6 @@ class PersonaInterface(ABC):
             for m in dice:
                 total += m
             self.dices["rolls"][attribute] += total
-    
-    def __set_modifiers__(self):
-        for attribute in self.dices["rolls"].keys():
             self.dices["modifiers"][attribute] = -5 + (self.dices["rolls"][attribute] // 2)
 
     def __set_trend__(self):
@@ -89,7 +104,7 @@ class PersonaInterface(ABC):
 
     def __set_background__(self, background: str):
         choices = ["ARTESAO DE GUILDA", "ACOLITO", "CHARLATAO"]
-        if background.upper() is None:
+        if background.upper() == "":
             background_name = random.choice(choices)
         else:
             background_name = re.sub("[0-9]", "", unidecode(background.upper()))
@@ -108,6 +123,5 @@ class PersonaInterface(ABC):
         PersonaInterface.__set_trend__(self)
         PersonaInterface.__set_race__(self, race)
         PersonaInterface.__set_status__(self)
-        PersonaInterface.__set_modifiers__(self)
         PersonaInterface.__set_class__(self, chosen_class)
         PersonaInterface.__set_background__(self, background)

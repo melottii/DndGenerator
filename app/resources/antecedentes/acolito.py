@@ -16,7 +16,7 @@ class Acolito(Antecedente):
         self.expertise = ['Intuição', 'Religião']
         self.knowledge = ["Característica: Abrigo dos fiéis"]
         self.money = {"ouro (po)": 15}
-        self.background_format = {"name": "ACÓLITO.",
+        self.background_format = {"name": "ACÓLITO",
                                   "type": Acolito.__set_type__(),
                                   "personality_trait": Acolito.__set_personalityTrait__(),
                                   "ideal": Acolito.__set_ideal__(),

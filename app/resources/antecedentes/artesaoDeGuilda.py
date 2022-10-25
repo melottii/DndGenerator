@@ -5,23 +5,24 @@ from app.builders.Antecedente import Antecedente
 
 class ArtesaoDeGuilda(Antecedente):
     def __init__(self, personagem):
-        super().__init__("ARTESÃO DE GUILDA", ["Conjunto de ferramentas de artesão",
-                                               "Carta de apresentação da sua guilda",
-                                               "Conjunto de roupas de viajante", "Uma algibeira"],
-                                               {"rand": 1},
-                                               ['Intuição', 'Persuasão'],
-                                               ["Característica: Abrigo dos fiéis"],
-                                               {"ouro (po)": 15},
-                                              {"type": ArtesaoDeGuilda.__set_type__(),
-                                               "personality_trait": ArtesaoDeGuilda.__set_personalityTrait__(),
-                                               "ideal": ArtesaoDeGuilda.__set_ideal__(),
-                                               "bond": ArtesaoDeGuilda.__set_bond__(),
-                                               "flaw": ArtesaoDeGuilda.__set_flaw__()})
-
+        super().__init__()
+        self.equips = ["Conjunto de ferramentas de artesão"
+                       "Carta de apresentação da sua guilda"
+                       "Conjunto de roupas de viajante", "Uma algibeira"]
+        self.idiom = {"rand": 1}
+        self.expertise = ['Intuição', 'Persuasão']
+        self.knowledge = ["Característica: Abrigo dos fiéis"]
+        self.money = {"ouro (po)": 15}
+        self.background_format = {"name": "ARTESÃO DE GUILDA",
+                                  "type": ArtesaoDeGuilda.__set_type__(),
+                                  "personality_trait": ArtesaoDeGuilda.__set_personalityTrait__(),
+                                  "ideal": ArtesaoDeGuilda.__set_ideal__(),
+                                  "bond": ArtesaoDeGuilda.__set_bond__(),
+                                  "flaw": ArtesaoDeGuilda.__set_flaw__()}
         ArtesaoDeGuilda.__set_config__(self, personagem)
 
     def __get_name__(self, **kwargs):
-        return "ANTECEDENTE: " + self.name
+        return "ANTECEDENTE: " + self.background_format["name"]
 
     def __get_type__(self, **kwargs):
         return "VARIAÇÃO DO ANTECEDENTE: " + self.background_format["type"]

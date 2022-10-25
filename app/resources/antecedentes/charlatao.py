@@ -15,7 +15,7 @@ class Charlatao(Antecedente):
         self.knowledge = ["Kit de Disfarce.", "Kit de Falsificação", "Característica: Identidade Falsa"]
         self.money = {"ouro (po)": 15}
 
-        self.background_format = {"name": "CHARLATÃO.",
+        self.background_format = {"name": "CHARLATÃO",
                                   "type": Charlatao.__set_type__(),
                                   "personality_trait": Charlatao.__set_personalityTrait__(),
                                   "ideal": Charlatao.__set_ideal__(),

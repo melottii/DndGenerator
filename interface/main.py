@@ -1,9 +1,11 @@
 from app.builders.FabricaPersonagem import PersonaInterface
 from app.builders.Usuario import Usuario
 
+
 class DndGenerator:
     def __init__(self):
-        self.user = Usuario("Matheus", "matheus.melotti@gmail.com")
+        self.user = Usuario("Matheus",
+                            "matheus.melotti@gmail.com")
         self.character = PersonaInterface()
 
     def printa_usuario(self):
@@ -11,6 +13,7 @@ class DndGenerator:
         print(self.user.email)
 
     def printa_personagem(self):
+        print(self.character.name)
         print(self.character.race.name)
         print(self.character.person_class.name)
         print(self.character.trend)
@@ -28,8 +31,8 @@ class DndGenerator:
 
 if __name__ == "__main__":
     first_person = DndGenerator()
-    first_person.character.director("Durat Diablo",
-                                    "Anão da Montanha",
-                                    "Barbaro",
-                                    "Charlatão")
+    first_person.character.director("SPAM CAXOTA",
+                                    "",
+                                    "",
+                                    "")
     first_person.printa_personagem()
