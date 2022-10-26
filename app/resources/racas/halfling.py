@@ -41,7 +41,7 @@ class Halfling(Raca):
                        "Bravura": "Você tem vantagem em testes de resistência contra ficar amedrontado. ",
                        "Agilidade Halfling": "Você pode mover-se através do espaço de qualquer criatura que for de "
                                              "um tamanho maior que o seu. "}
-        self.stats = {"strength": 0, "dexterity": 2, "constitution": 0, "intelligence": 0, "wisdom": 0, "charisma": 0, }
+        self.stats = {"strength": 0, "dexterity": 2, "constitution": 0, "intelligence": 0, "wisdom": 0, "charisma": 0}
 
     def __get_name__(self):
         return self.name
