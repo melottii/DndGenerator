@@ -13,6 +13,8 @@ from app.resources.antecedentes import acolito, artesaoDeGuilda, charlatao
 class PersonaInterface(ABC):
     def __init__(self):
         self.name = str
+        self.life = 0
+        self.armor_class = int
         self.body = []
         self.equip = []
         self.expertise = []
@@ -75,9 +77,10 @@ class PersonaInterface(ABC):
                     person_class_name = random.choice(choices)
                 else:
                     sys.exit("INPUT INCORRETO DE CLASSE")
+            person_class_name = "BARBARO"
             match person_class_name.upper():
                 case "BARBARO":
-                    self.person_class = barbaro.Barbaro()
+                    self.person_class = barbaro.Barbaro(self)
                 case "LADINO":
                     self.person_class = ladino.Ladino()
                 case "BRUXO":
@@ -123,5 +126,5 @@ class PersonaInterface(ABC):
         PersonaInterface.__set_trend__(self)
         PersonaInterface.__set_race__(self, race)
         PersonaInterface.__set_status__(self)
-        PersonaInterface.__set_class__(self, chosen_class)
         PersonaInterface.__set_background__(self, background)
+        PersonaInterface.__set_class__(self, chosen_class)
