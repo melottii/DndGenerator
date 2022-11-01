@@ -6,12 +6,12 @@ class Barbaro(Classe):
     def __init__(self, personagem):
         super().__init__()
         self.name = "BÁRBARO"
-        self.endurance_tests = ["Força", "Constituição  "]
+        self.proficiency_bonus = "+2"
         self.life = 12 + int(personagem.dices["modifiers"]["constitution"])
         self.dices_life = "1d12"
         self.knowledge = ["Armaduras leves", "Armaduras médias", "Escudos", "Armas simples", "Armas simples"]
         self.expertise = Barbaro.__set_skill_list__(personagem)
-
+        self.endurance_tests = ["strength", "constitution"]
         Barbaro.__set_config__(self, personagem)
 
     @staticmethod
@@ -25,4 +25,5 @@ class Barbaro(Classe):
 
     def __set_config__(self, personagem):
         personagem.life += self.life
-        pass
+        for i in self.endurance_tests:
+            personagem.dices["resistence_test"].append(i)

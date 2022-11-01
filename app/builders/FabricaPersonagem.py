@@ -29,7 +29,9 @@ class PersonaInterface(ABC):
                       "electro (pe)": 0,
                       "ouro (po)": 0,
                       "platina (pl)": 0}
-        self.dices = {"rolls": {'strength': 0, 'dexterity': 0,
+        self.dices = {"proficiency_bonus": str,
+                      "resistence_test": [],
+                      "rolls": {'strength': 0, 'dexterity': 0,
                                 'constitution': 0, 'intelligence': 0,
                                 'wisdom': 0, 'charisma': 0},
                       "modifiers": {'strength': 0, 'dexterity': 0,

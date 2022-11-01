@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/builders/FabricaPersonagem.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/builders/FabricaPersonagem.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/resources/classes/barbaro.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/resources/classes/barbaro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/resources/equipamentos/armas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/resources/equipamentos/armas.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +86,7 @@
       <workItem from="1666694118547" duration="3869000" />
       <workItem from="1666802528020" duration="1454000" />
       <workItem from="1666825649602" duration="3805000" />
+      <workItem from="1667300136287" duration="2802000" />
     </task>
     <servers />
   </component>

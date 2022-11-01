@@ -1,15 +1,30 @@
 class Armas:
     def __init__(self):
-        self.corpo_a_corpo = {"nome": ["Adaga", "Lança", "Porrete", "Espada Curta", "Machado Grande"],
-                              "preco": ["2", " 1", " 1", " 10", "30 "], "moeda": ["po", "po", "pp", "po", "po"],
-                              "dado_dano": ["1d4", "1d6", "1d4", "1d6", "1d12"],
-                              "tipo_dano": ["perfurante", "perfurante", "concussão", "perfurante", "cortante"],
-                              "peso": [0.5, 1.6, 1, 1, 3.5],
-                              "propriedade": [["Acuidade", "leve", "arremesso", "(distância 6/18)"],
-                                              ["Arremesso", "(distância 6/18)", " versátil(1d8)"], ["leve"],
-                                              ["Acuidade", "leve"], ["Pesada", "duas mãos"]]}
+        self.corpo_a_corpo_simples = {"Adaga": {"Preço": "2 po", "Dano": "1d4", "Peso": "0.5 kg",
+                                                "Propriedades": ["Acuidade", "Leve", "Arremesso (distância 6/18)"]},
+                                      "Azagaia": {"Preço": "5 pp", "Dano": "1d6", "Peso": "1 kg",
+                                                  "Propriedades": ["Perfurante", "Arremesso (distância 9/36)"]},
+                                      "Bordão": {"Preço": "2 pp", "Dano": "1d6", "Peso": "2 kg",
+                                                 "Propriedades": ["Concussão, ""Versátil (1d8)"]},
+                                      "Clava Grande": {"Preço": "2 pp", "Dano": "1d8", "Peso": "5 kg",
+                                                       "Propriedades": ["Concussão", "Pesada", "Duas mãos"]},
+                                      "Foice curta": {"Preço": "1 po", "Dano": "1d4", "Peso": "1   kg",
+                                                      "Propriedades": ["Cortante", "Leve"]},
+                                      "Lança": {"Preço": "1 po", "Dano": "1d6", "Peso": "1.5 kg",
+                                                "Propriedades": ["Perfurante", "Arremesso (6/18)", "Versátil (1d8)"]},
+                                      "Maça": {"Preço": "5 po", "Dano": "1d6", "Peso": "2 kg",
+                                               "Propriedades": ["Concussão"]},
+                                      "Machadinha": {"Preço": "5 po", "Dano": "1d6", "Peso": " 1kg",
+                                                     "Propriedades": ["Leve Arremesso"]},
+                                      "Martelo Leve": {"Preço": "2 po", "Dano": "1d4", "Peso": "1 kg",
+                                                       "Propriedades": ["Concussão", "Leve",
+                                                                        "Arremesso (distância 6/18)"]},
+                                      "Porrete": {"Preço": "1 pp", "Dano": "1d4", "Peso": "1 kg",
+                                                  "Propriedades": ["Concussão", "Leve"]}}
 
-        self.distancia = {"nome": ["Arco Curto", "Arco Longo", ], "preco": ["25", "50"], "moeda": ["po", "po"],
-                          "dado_dano": ["1d4", "1d8", ], "tipo_dano": ["perfurante", "perfurante"], "peso": [0.1, 1],
-                          "propriedade": [["Munição", "(distância 24/96)", "duas mãos "],
-                                          ["Munição", "(distância 45/180)", "pesada", " duas mãos"]]}
+        self.distancia_simples = {"Arco Curto": {"Preço": "25 po", "Dano": "1d6", "Peso": "1 kg",
+                                                 "Propriedades": ["Perfurante", "Duas mãos",
+                                                                  "Munição (distância 24/96)"]},
+                                  "Besta Leve": {"Preço": "25 po", "Dano": "1d8", "Peso": "2.5 kg",
+                                                 "Propriedades": ["Perfurante", "Recarga", "Duas mãos",
+                                                                  "Munição (distância 24/96)"]}}
