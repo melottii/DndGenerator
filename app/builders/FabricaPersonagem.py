@@ -64,7 +64,7 @@ class PersonaInterface(ABC):
                     self.race = halfling_pes_leves.HalflingPesLeves(self)
                 case "HALFLING ROBUSTO":
                     self.race = halfling_robusto.HalflingRobusto(self)
-
+            race.__set_config__(self)
         except Exception as e:
             sys.exit(f"ERRO AO DEFINIR RAÇA DO PERSONAGEM: {e}")
 

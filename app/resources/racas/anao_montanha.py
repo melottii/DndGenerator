@@ -13,7 +13,6 @@ class AnaoMontanha(Anao):
         self.__add_skill__("Aumento no Valor de Habilidade", " Seu valor de Força aumenta em 2.")
         self.__add_skill__("Treinamento Anão com Armaduras", "Você adquire proficiência em armaduras leves e médias. ")
         self.__set_strength__(self.stats["strength"] + 2)
-        Anao.__set_config__(self, personagem)
     
     def __get_sub_description__(self):
         return self.__sub_description__

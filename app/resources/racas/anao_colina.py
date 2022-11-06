@@ -13,4 +13,3 @@ class AnaoColina(Anao):
         self.__add_skill__("Tenacidade Anã", " Seu máximo de pontos de vida aumentam em 1, e cada vez que o anão da "
                                              "colina sobe um nível, ele recebe 1 ponto de vida adicional.")
         self.__set_wisdom__(self.stats["wisdom"] + 1)
-        Anao.__set_config__(self, personagem)

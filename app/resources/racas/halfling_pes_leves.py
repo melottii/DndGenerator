@@ -17,7 +17,6 @@ class HalflingPesLeves(Halfling):
                                                   "cobertura de uma criatura que for no mínimo um tamanho maior "
                                                   "que o seu.")
         self.__set_charisma__(self.stats["charisma"] + 2)
-        Halfling.__set_config__(self, personagem)
     
     def __get_sub_description__(self):
         return self.__sub_description__

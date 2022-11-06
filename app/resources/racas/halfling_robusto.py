@@ -16,7 +16,6 @@ class HalflingRobusto(Halfling):
         self.__add_skill__("Resiliência dos Robustos. Você", "tem vantagem em testes de resistência contra veneno e"
                                                              " tem resistência contra dano de veneno. ")
         self.__set_constitution__(self.stats["constitution"] + 1)
-        Halfling.__set_config__(self, personagem)
     
     def __get_sub_description__(self):
         return self.__sub_description__
