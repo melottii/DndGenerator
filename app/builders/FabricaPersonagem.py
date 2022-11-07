@@ -14,7 +14,7 @@ class PersonaInterface(ABC):
     def __init__(self):
         self.name = str
         self.life = 0
-        self.armor_class = int
+        self.armor_class = 0
         self.body = []
         self.equip = []
         self.expertise = []
