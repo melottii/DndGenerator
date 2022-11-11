@@ -71,20 +71,56 @@ class Armas:
                                                    "Propriedades": ["Perfurante", "Acuidade"]},
                                       "Tridente": {"Preço": "5 po", "Dano": "1d6", "Peso": "2 kg",
                                                    "Propriedades": ["Perfurante", "Arremesso (6/18)",
-                                                                    "Versátil (1d8)"]}
-                                      }
+                                                                    "Versátil (1d8)"]}}
 
         self.distancia_marcial = {"Arco Longo": {"Preço": "50 po", "Dano": "1d8", "Peso": "1 kg",
                                                  "Propriedades": ["Perfurante", "Duas mãos", "Pesada",
                                                                   "Munição (distância 45/180)"]},
                                   "Besta de Mão": {"Preço": "75 po", "Dano": "1d6", "Peso": "1.5 kg",
-                                                 "Propriedades": ["Perfurante", "Recarga", "Leve",
-                                                                  "Munição (distância 9/36)"]},
+                                                   "Propriedades": ["Perfurante", "Recarga", "Leve",
+                                                                    "Munição (distância 9/36)"]},
                                   "Besta Pesada": {"Preço": "50 po", "Dano": "1d10", "Peso": "4.5 kg",
-                                            "Propriedades": ["Perfurante", "Acuidade", "Arremesso (distância 30/120)",
-                                                             "Pesada", "Recarga", "Duas Mãos"]},
+                                                   "Propriedades": ["Perfurante", "Acuidade",
+                                                                    "Arremesso (distância 30/120)", "Pesada", "Recarga",
+                                                                    "Duas Mãos"]},
                                   "Rede": {"Preço": "1 po", "Dano": "-", "Peso": "1.5 kg",
-                                            "Propriedades": ["Especial", "Munição (distância 1.5/4.5)"]},
+                                           "Propriedades": ["Especial", "Munição (distância 1.5/4.5)"]},
                                   "Zarabatana": {"Preço": "10 po", "Dano": "1", "Peso": "0.5 kg",
-                                            "Propriedades": ["Perfurante", "Munição (distância 7.5/30)", "Recarga"]}
-                                  }
+                                                 "Propriedades": ["Perfurante", "Munição (distância 7.5/30)",
+                                                                  "Recarga"]}}
+
+    def __get_corpo_a_corpo_simples__(self, param):
+        return self.corpo_a_corpo_simples[param]
+
+    def __get_corpo_a_corpo_marcial__(self, param):
+        return self.corpo_a_corpo_marcial[param]
+
+    def __get_distancia_simples__(self, param):
+        return self.distancia_simples[param]
+
+    def __get_distancia_marcial__(self, param):
+        return self.distancia_marcial[param]
+
+    def __get_corpo_a_corpo_marcial_list__(self):
+        return [i for i in self.corpo_a_corpo_marcial.keys()]
+
+    def __get_corpo_a_corpo_simples_list__(self):
+        return [i for i in self.corpo_a_corpo_simples.keys()]
+
+    def __get_distancia_marcial_list__(self):
+        return [i for i in self.distancia_marcial.keys()]
+
+    def __get_distancia_simples_list__(self):
+        return [i for i in self.distancia_simples.keys()]
+
+    def __set_corpo_a_corpo_simples__(self, param, attb):
+        self.corpo_a_corpo_simples[param] = attb
+
+    def __set_corpo_a_corpo_marcial__(self, param, attb):
+        self.corpo_a_corpo_marcial[param] = attb
+
+    def __set_distancia_simples__(self, param, attb):
+        self.distancia_simples[param] = attb
+
+    def __set_distancia_marcial__(self, param, attb):
+        self.distancia_marcial[param] = attb

@@ -8,6 +8,9 @@ from unidecode import unidecode
 from app.resources.classes import bruxo, barbaro, ladino
 from app.resources.racas import halfling_pes_leves, halfling_robusto, anao_colina, anao_montanha
 from app.resources.antecedentes import acolito, artesaoDeGuilda, charlatao
+from app.resources.equipamentos.armas import Armas
+from app.resources.equipamentos.armaduras import Armaduras
+from app.resources.equipamentos.equipamentos import Equipamentos
 
 
 class PersonaInterface(ABC):
@@ -15,8 +18,11 @@ class PersonaInterface(ABC):
         self.name = str
         self.life = 0
         self.armor_class = 0
+        self.proficiency_bonus = ""
         self.body = []
-        self.equip = []
+        self.equip = {"Armas": {},
+                      "Armaduras": {},
+                      "Equipamentos": []}
         self.expertise = []
         self.knowledge = []
         self.idiom = {"rand": 0, "choice": []}
@@ -39,6 +45,12 @@ class PersonaInterface(ABC):
                                     'wisdom': 0, 'charisma': 0}}
         self.magic = {"0": {str: []},
                       "1": {str: []}}
+
+        self.bag = {
+            "Armas": Armas(),
+            "Armasduras": Armaduras(),
+            "Equipamentos": Equipamentos()
+        }
 
     def __set_name__(self, name: str):
         self.name = name
@@ -64,7 +76,7 @@ class PersonaInterface(ABC):
                     self.race = halfling_pes_leves.HalflingPesLeves(self)
                 case "HALFLING ROBUSTO":
                     self.race = halfling_robusto.HalflingRobusto(self)
-            race.__set_config__(self)
+            self.race.__set_config__(self)
         except Exception as e:
             sys.exit(f"ERRO AO DEFINIR RAÇA DO PERSONAGEM: {e}")
 

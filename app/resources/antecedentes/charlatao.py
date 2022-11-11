@@ -117,7 +117,7 @@ class Charlatao(Antecedente):
 
     def __set_config__(self, personagem):
         for equip in self.equips:
-            personagem.equip.append(equip)
+            personagem.equip["Equipamentos"].append(equip)
         for exp in self.expertise:
             personagem.expertise.append(exp)
         for know in self.knowledge:

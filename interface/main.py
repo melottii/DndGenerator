@@ -13,6 +13,7 @@ class DndGenerator:
         print(self.user.email)
 
     def printa_personagem(self):
+        """
         print(self.character.name)
         print(self.character.race.name)
         print(self.character.person_class.name)
@@ -27,6 +28,7 @@ class DndGenerator:
         print(self.character.background.background_format["ideal"])
         print(self.character.background.background_format["flaw"])
         print(self.character.background.background_format["bond"])
+        """
 
 
 if __name__ == "__main__":
