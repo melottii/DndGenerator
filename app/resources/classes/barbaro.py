@@ -1,5 +1,7 @@
-from app.builders.Classe import Classe
-from app.resources.classes.item_controller import *
+from app.builders.fabrica_abstrata.Classe import Classe
+from app.builders.prototipo.ItemPrototipo import ItemPrototipo
+
+import random
 
 class Barbaro(Classe):
     def __init__(self, personagem):
@@ -27,28 +29,28 @@ class Barbaro(Classe):
             item2 = None
 
             if a == "Machado Grande":
-                item = get_arma_marcial(a)
+                item = ItemPrototipo().get_arma_marcial(a)
             else:
-                item = get_random_arma_marcial()
+                item = ItemPrototipo().get_random_arma_marcial()
             personagem.equip["Armas"].append(item)
 
             b = random.choice(["Machadinha", "Arma simples"])
             if b == "Machadinha":
-                item = get_arma_corpo_a_corpo_simples(b)
-                item2 = get_arma_corpo_a_corpo_simples(b)
+                item = ItemPrototipo().get_arma_corpo_a_corpo_simples(b)
+                item2 = ItemPrototipo().get_arma_corpo_a_corpo_simples(b)
             else:
-                item = get_random_arma_corpo_a_corpo_simples()
+                item = ItemPrototipo().get_random_arma_corpo_a_corpo_simples()
 
             personagem.equip["Armas"].append(item)
             if item2 != None:
                 personagem.equip["Armas"].append(item2)
 
             for i in range(1, 5):
-                item = get_arma_corpo_a_corpo_simples("Azagaia")
+                item = ItemPrototipo().get_arma_corpo_a_corpo_simples("Azagaia")
                 personagem.equip["Armas"].append(item)
 
-            pacote = get_pacote("Pacote de Aventureiro")
-            add_equipamentos_pacote(pacote, personagem)
+            pacote = ItemPrototipo().get_pacote("Pacote de Aventureiro")
+            ItemPrototipo().add_equipamentos_pacote(pacote, personagem)
 
         except Exception as e:
             print(e)

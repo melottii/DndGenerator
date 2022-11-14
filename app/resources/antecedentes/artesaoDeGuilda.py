@@ -1,7 +1,9 @@
 import random
 
-from app.builders.Antecedente import Antecedente
-from app.resources.classes.item_controller import *
+from app.builders.fabrica_abstrata.Antecedente import Antecedente
+from app.builders.prototipo.ItemPrototipo import ItemPrototipo
+
+ItemPrototipo()
 
 class ArtesaoDeGuilda(Antecedente):
     def __init__(self, personagem):
@@ -125,16 +127,16 @@ class ArtesaoDeGuilda(Antecedente):
             "Suprimentos de caligrafia",
             "Utensílios de cozinheiro"
         ])
-        equip = get_equipamento(nome, 1)
+        equip = ItemPrototipo().get_equipamento(nome, 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = get_equipamento("Carta de apresentação da guilda", 1)
+        equip = ItemPrototipo().get_equipamento("Carta de apresentação da guilda", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = get_equipamento("Roupas de viajante", 1)
+        equip = ItemPrototipo().get_equipamento("Roupas de viajante", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = get_equipamento("Algibeira", 1)
+        equip = ItemPrototipo().get_equipamento("Algibeira", 1)
         personagem.equip["Equipamentos"].append(equip)
 
     def __set_config__(self, personagem):

@@ -1,7 +1,7 @@
 import random
 
-from app.builders.Antecedente import Antecedente
-from app.resources.classes.item_controller import *
+from app.builders.fabrica_abstrata.Antecedente import Antecedente
+from app.builders.prototipo.ItemPrototipo import ItemPrototipo
 
 class Charlatao(Antecedente):
     def __init__(self, personagem):
@@ -113,25 +113,25 @@ class Charlatao(Antecedente):
     
     def __set_equips__(self, personagem):
         nome = random.choice(["Baralho de cartas marcadas","Anel de sinete de um duque imaginário" ])
-        quip = get_equipamento(nome, 1)
+        equip = ItemPrototipo().get_equipamento(nome, 1)
         personagem.equip["Equipamentos"].append(equip)
     
-        equip = get_equipamento("Roupas finas", 1)
+        equip = ItemPrototipo().get_equipamento("Roupas finas", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = get_equipamento("Kit de disfarce", 1)
+        equip = ItemPrototipo().get_equipamento("Kit de disfarce", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = get_equipamento("Ferramentas de trapaça", 1)
+        equip = ItemPrototipo().get_equipamento("Ferramentas de trapaça", 1)
         personagem.equip["Equipamentos"].append(equip)
     
-        equip = get_equipamento("Garrafa de vidro tampada com líquido colorido", 10)
+        equip = ItemPrototipo().get_equipamento("Garrafa de vidro tampada com líquido colorido", 10)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = get_equipamento("Conjunto de dados viciados", 1)
+        equip = ItemPrototipo().get_equipamento("Conjunto de dados viciados", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = get_equipamento("Algibeira", 1)
+        equip = ItemPrototipo().get_equipamento("Algibeira", 1)
         personagem.equip["Equipamentos"].append(equip)
 
     def __set_config__(self, personagem):

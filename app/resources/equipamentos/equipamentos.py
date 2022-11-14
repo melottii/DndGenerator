@@ -1,5 +1,5 @@
-from app.builders.Pacote import Pacote
-from app.builders.Equipamento import Equipamento
+from app.builders.prototipo.Pacote import Pacote
+from app.builders.prototipo.Equipamento import Equipamento
 
 class Equipamentos:
     def __init__(self):

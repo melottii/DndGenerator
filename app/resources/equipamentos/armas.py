@@ -1,4 +1,4 @@
-from app.builders.Arma import Arma
+from app.builders.prototipo.Arma import Arma
 
 class Armas:
     def __init__(self):

@@ -1,4 +1,4 @@
-from app.builders.Raca import Raca
+from app.builders.fabrica_abstrata.Raca import Raca
 
 
 class Halfling(Raca):

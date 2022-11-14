@@ -1,7 +1,7 @@
 import random
 
-from app.builders.Antecedente import Antecedente
-from app.resources.classes.item_controller import *
+from app.builders.fabrica_abstrata.Antecedente import Antecedente
+from app.builders.prototipo.ItemPrototipo import ItemPrototipo
 
 class Acolito(Antecedente):
     def __init__(self, personagem):
@@ -100,23 +100,23 @@ class Acolito(Antecedente):
         return random.choice(flaw)
 
     def __set_equips__(self, personagem):
-        equip = get_equipamento("Símbolo sagrado", 1)
+        equip = ItemPrototipo().get_equipamento("Símbolo sagrado", 1)
         personagem.equip["Equipamentos"].append(equip)
 
         nome = random.choice(["Livro de preces", "Conta de orações"])
-        equip = get_equipamento(nome, 1)
+        equip = ItemPrototipo().get_equipamento(nome, 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = get_equipamento("Vareta de incenso", 5)
+        equip = ItemPrototipo().get_equipamento("Vareta de incenso", 5)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = get_equipamento("Vestimenta de acólito", 1)
+        equip = ItemPrototipo().get_equipamento("Vestimenta de acólito", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = get_equipamento("Roupas comuns", 1)
+        equip = ItemPrototipo().get_equipamento("Roupas comuns", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = get_equipamento("Algibeira", 1)
+        equip = ItemPrototipo().get_equipamento("Algibeira", 1)
         personagem.equip["Equipamentos"].append(equip)
 
     def __set_config__(self, personagem):

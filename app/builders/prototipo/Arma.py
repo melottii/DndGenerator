@@ -1,4 +1,4 @@
-from app.builders.Equipamento import Equipamento
+from app.builders.prototipo.Equipamento import Equipamento
 
 class Arma(Equipamento):
     def __init__(self, nome:str, preco: int, moeda: str, peso: float, quantidade: int, dano: str, propriedades: list):

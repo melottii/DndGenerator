@@ -1,5 +1,4 @@
-from app.builders.Classe import Classe
-
+from app.builders.fabrica_abstrata.Classe import Classe
 
 class Bruxo(Classe):
     def __init__(self):

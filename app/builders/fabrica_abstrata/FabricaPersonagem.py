@@ -9,7 +9,7 @@ from app.resources.classes import bruxo, barbaro, ladino
 from app.resources.racas import halfling_pes_leves, halfling_robusto, anao_colina, anao_montanha
 from app.resources.antecedentes import acolito, artesaoDeGuilda, charlatao
 
-class PersonaInterface(ABC):
+class FabricaPersonagem(ABC):
     def __init__(self):
         self.name = str
         self.life = 0
@@ -125,11 +125,3 @@ class PersonaInterface(ABC):
                 self.background = acolito.Acolito(self)
             case "CHARLATAO":
                 self.background = charlatao.Charlatao(self)
-
-    def director(self, name: str, race: str, chosen_class: str, background: str):
-        PersonaInterface.__set_name__(self, name)
-        PersonaInterface.__set_trend__(self)
-        PersonaInterface.__set_race__(self, race)
-        PersonaInterface.__set_status__(self)
-        PersonaInterface.__set_background__(self, background)
-        PersonaInterface.__set_class__(self, chosen_class)

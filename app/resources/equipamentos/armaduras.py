@@ -1,4 +1,4 @@
-from app.builders.Armadura import Armadura
+from app.builders.prototipo.Armadura import Armadura
 
 class Armaduras:
     def __init__(self):

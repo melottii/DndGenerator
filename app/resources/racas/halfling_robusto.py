@@ -1,6 +1,5 @@
 from app.resources.racas.halfling import Halfling
 
-
 class HalflingRobusto(Halfling):
     def __init__(self):
         super().__init__()
