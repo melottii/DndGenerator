@@ -1,14 +1,11 @@
 import random
 
 from app.builders.Antecedente import Antecedente
-
+from app.resources.classes.item_controller import *
 
 class ArtesaoDeGuilda(Antecedente):
     def __init__(self, personagem):
         super().__init__()
-        self.equips = ["Conjunto de ferramentas de artesão"
-                       "Carta de apresentação da sua guilda"
-                       "Conjunto de roupas de viajante", "Uma algibeira"]
         self.idiom = {"rand": 1}
         self.expertise = ['Intuição', 'Persuasão']
         self.knowledge = ["Característica: Abrigo dos fiéis"]
@@ -107,10 +104,42 @@ class ArtesaoDeGuilda(Antecedente):
                 'Eu sou terrivelmente invejoso com qualquer um que possa ofuscar meu ofício. Todo lugar que eu '
                 'vou, estou cercado de rivais.']
         return random.choice(flaw)
+    
+    def __set_equips__(self, personagem):
+        nome = random.choice([
+            "Ferramentas de carpinteiro", 
+            "Ferramentas de cartógrafo",
+            "Ferramentas de costureiro",
+            "Ferramentas de coureiro",
+            "Ferramentas de entalhador",
+            "Ferramentas de ferreiro",
+            "Ferramentas de funileiro",
+            "Ferramentas de joalheiro",
+            "Ferramentas de oleiro",
+            "Ferramentas de pedreiro",
+            "Ferramentas de pintor",
+            "Ferramentas de sapateiro",
+            "Ferramentas de vidreiro",
+            "Suprimentos de alquimista",
+            "Suprimentos de cervejeiro",
+            "Suprimentos de caligrafia",
+            "Utensílios de cozinheiro"
+        ])
+        equip = get_equipamento(nome, 1)
+        personagem.equip["Equipamentos"].append(equip)
+
+        equip = get_equipamento("Carta de apresentação da guilda", 1)
+        personagem.equip["Equipamentos"].append(equip)
+
+        equip = get_equipamento("Roupas de viajante", 1)
+        personagem.equip["Equipamentos"].append(equip)
+
+        equip = get_equipamento("Algibeira", 1)
+        personagem.equip["Equipamentos"].append(equip)
 
     def __set_config__(self, personagem):
-        for equip in self.equips:
-            personagem.equip["Equipamentos"].append(equip)
+        self.__set_equips__(personagem)
+
         for exp in self.expertise:
             personagem.expertise.append(exp)
         for know in self.knowledge:

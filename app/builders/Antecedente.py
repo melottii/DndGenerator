@@ -23,5 +23,9 @@ class Antecedente(ABC):
         pass
 
     @abstractmethod
+    def __set_equips__(self, personagem):
+        pass
+
+    @abstractmethod
     def __get_flaw__(self, personagem):
         pass

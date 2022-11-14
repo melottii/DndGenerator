@@ -1,17 +1,11 @@
 import random
 
 from app.builders.Antecedente import Antecedente
-
+from app.resources.classes.item_controller import *
 
 class Acolito(Antecedente):
     def __init__(self, personagem):
         super().__init__()
-        self.equips = ["Um símbolo sagrado (um presente dado quando você entrou no templo).",
-                       "Livro de preces ou uma conta de orações.",
-                       "5 varetas de incenso.",
-                       "Vestimentas de acólito.",
-                       "Conjunto de roupas comuns.",
-                       "Algibeira."]
         self.idiom = {"rand": 2}
         self.expertise = ['Intuição', 'Religião']
         self.knowledge = ["Característica: Abrigo dos fiéis"]
@@ -105,9 +99,29 @@ class Acolito(Antecedente):
                 'qualquer outra coisa em minha vida.']
         return random.choice(flaw)
 
+    def __set_equips__(self, personagem):
+        equip = get_equipamento("Símbolo sagrado", 1)
+        personagem.equip["Equipamentos"].append(equip)
+
+        nome = random.choice(["Livro de preces", "Conta de orações"])
+        equip = get_equipamento(nome, 1)
+        personagem.equip["Equipamentos"].append(equip)
+
+        equip = get_equipamento("Vareta de incenso", 5)
+        personagem.equip["Equipamentos"].append(equip)
+
+        equip = get_equipamento("Vestimenta de acólito", 1)
+        personagem.equip["Equipamentos"].append(equip)
+
+        equip = get_equipamento("Roupas comuns", 1)
+        personagem.equip["Equipamentos"].append(equip)
+
+        equip = get_equipamento("Algibeira", 1)
+        personagem.equip["Equipamentos"].append(equip)
+
     def __set_config__(self, personagem):
-        for equip in self.equips:
-            personagem.equip["Equipamentos"].append(equip)
+        self.__set_equips__(personagem)
+        
         for exp in self.expertise:
             personagem.expertise.append(exp)
         for know in self.knowledge:

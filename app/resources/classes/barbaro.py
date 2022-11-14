@@ -1,6 +1,5 @@
 from app.builders.Classe import Classe
-import random
-
+from app.resources.classes.item_controller import *
 
 class Barbaro(Classe):
     def __init__(self, personagem):
@@ -11,9 +10,8 @@ class Barbaro(Classe):
         self.dices_life = "1d12"
         self.knowledge = ["Armaduras leves", "Armaduras médias", "Escudos", "Armas simples", "Armas simples"]
         self.expertise = Barbaro.__set_skill_list__(personagem)
-        self.equip = Barbaro.__set_equip_list__(personagem)
+        self.equip = Barbaro.__set_equip__(personagem)
         self.endurance_tests = ["strength", "constitution"]
-        Barbaro.__set_config__(self, personagem)
 
     @staticmethod
     def __set_skill_list__(personagem):
@@ -22,28 +20,36 @@ class Barbaro(Classe):
         return random.choices(final_list, k=2)
 
     @staticmethod
-    def __set_equip_list__(personagem):
+    def __set_equip__(personagem):
         try:
-            equips = {"Armas": {}, "Armaduras": {}, "Equipamentos": []}
             a = random.choice(["Machado Grande", "Arma Marcial"])
+            item = None
+            item2 = None
+
             if a == "Machado Grande":
-                equips["Armas"]["Machado Grande"] = personagem.bag["Armas"].__get_corpo_a_corpo_marcial__(
-                    "Machado Grande")
+                item = get_arma_marcial(a)
             else:
-                a_random = random.choice(personagem.bag["Armas"].__get_corpo_a_corpo_marcial_list__())
-                equips["Armas"][a_random] = personagem.bag["Armas"].__get_corpo_a_corpo_marcial__(a_random)
+                item = get_random_arma_marcial()
+            personagem.equip["Armas"].append(item)
+
             b = random.choice(["Machadinha", "Arma simples"])
             if b == "Machadinha":
-                equips["Armas"]["Machadinha 1"] = personagem.bag["Armas"].__get_corpo_a_corpo_simples__("Machadinha")
-                equips["Armas"]["Machadinha 2"] = personagem.bag["Armas"].__get_corpo_a_corpo_simples__("Machadinha")
+                item = get_arma_corpo_a_corpo_simples(b)
+                item2 = get_arma_corpo_a_corpo_simples(b)
             else:
-                a_random = random.choice(personagem.bag["Armas"].__get_corpo_a_corpo_simples_list__())
-                equips["Armas"][a_random] = personagem.bag["Armas"].__get_corpo_a_corpo_simples__(a_random)
+                item = get_random_arma_corpo_a_corpo_simples()
+
+            personagem.equip["Armas"].append(item)
+            if item2 != None:
+                personagem.equip["Armas"].append(item2)
+
             for i in range(1, 5):
-                equips["Armas"]["Azagaia " + str(i)] = personagem.bag["Armas"].__get_corpo_a_corpo_simples__("Azagaia")
-            equips["Equipamentos"].append(
-                {"Pacote de Aventureiro": personagem.bag["Equipamentos"].__get_pacote__("Pacote de Aventureiro")})
-            return equips
+                item = get_arma_corpo_a_corpo_simples("Azagaia")
+                personagem.equip["Armas"].append(item)
+
+            pacote = get_pacote("Pacote de Aventureiro")
+            add_equipamentos_pacote(pacote, personagem)
+
         except Exception as e:
             print(e)
 
@@ -61,11 +67,3 @@ class Barbaro(Classe):
 
         for m in self.expertise:
             personagem.expertise.append(m)
-
-        for e in self.equip:
-            if e != "Equipamentos":
-                for k in self.equip[e]:
-                    personagem.equip[e][k] = self.equip[e][k]
-            else:
-                for b in range(len(self.equip[e])):
-                    personagem.equip[e].append(self.equip[e][0])

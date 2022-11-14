@@ -8,10 +8,6 @@ from unidecode import unidecode
 from app.resources.classes import bruxo, barbaro, ladino
 from app.resources.racas import halfling_pes_leves, halfling_robusto, anao_colina, anao_montanha
 from app.resources.antecedentes import acolito, artesaoDeGuilda, charlatao
-from app.resources.equipamentos.armas import Armas
-from app.resources.equipamentos.armaduras import Armaduras
-from app.resources.equipamentos.equipamentos import Equipamentos
-
 
 class PersonaInterface(ABC):
     def __init__(self):
@@ -20,8 +16,8 @@ class PersonaInterface(ABC):
         self.armor_class = 0
         self.proficiency_bonus = ""
         self.body = []
-        self.equip = {"Armas": {},
-                      "Armaduras": {},
+        self.equip = {"Armas": [],
+                      "Armaduras": [],
                       "Equipamentos": []}
         self.expertise = []
         self.knowledge = []
@@ -46,12 +42,6 @@ class PersonaInterface(ABC):
         self.magic = {"0": {str: []},
                       "1": {str: []}}
 
-        self.bag = {
-            "Armas": Armas(),
-            "Armasduras": Armaduras(),
-            "Equipamentos": Equipamentos()
-        }
-
     def __set_name__(self, name: str):
         self.name = name
 
@@ -69,13 +59,13 @@ class PersonaInterface(ABC):
 
             match race_name:
                 case "ANAO DA COLINA":
-                    self.race = anao_colina.AnaoColina(self)
+                    self.race = anao_colina.AnaoColina()
                 case "ANAO DA MONTANHA":
-                    self.race = anao_montanha.AnaoMontanha(self)
+                    self.race = anao_montanha.AnaoMontanha()
                 case "HALFLING PÉS LEVES":
-                    self.race = halfling_pes_leves.HalflingPesLeves(self)
+                    self.race = halfling_pes_leves.HalflingPesLeves()
                 case "HALFLING ROBUSTO":
-                    self.race = halfling_robusto.HalflingRobusto(self)
+                    self.race = halfling_robusto.HalflingRobusto()
             self.race.__set_config__(self)
         except Exception as e:
             sys.exit(f"ERRO AO DEFINIR RAÇA DO PERSONAGEM: {e}")
@@ -99,6 +89,7 @@ class PersonaInterface(ABC):
                     self.person_class = ladino.Ladino()
                 case "BRUXO":
                     self.person_class = bruxo.Bruxo()
+            self.person_class.__set_config__(self)
         except Exception as e:
             sys.exit(f"ERRO AO DEFINIR CLASSE DO PERSONAGEM: {e}")
 

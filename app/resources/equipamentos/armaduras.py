@@ -1,3 +1,5 @@
+from app.builders.Armadura import Armadura
+
 class Armaduras:
     def __init__(self):
         self.leve = {
@@ -102,3 +104,52 @@ class Armaduras:
                 "peso": 3
             }
         }
+    
+    def __get_leve__(self, param):
+        return {param: self.leve[param]}
+    
+    def __get_media__(self, param):
+        return {param: self.media[param]}
+
+    def __get_pesada__(self, param):
+        return {param: self.pesada[param]}
+
+    def __get_escudo__(self, param):
+        return {param: self.escudo[param]}
+
+    def __get_leve_list__(self):
+        return [i for i in self.leve.keys()]
+
+    def __set_leve_simples__(self, param, attb):
+        self.leve[param] = attb
+
+    def __get_media_list__(self):
+        return [i for i in self.media.keys()]
+
+    def __set_media_simples__(self, param, attb):
+        self.media[param] = attb
+
+    def __get_pesada_list__(self):
+        return [i for i in self.pesada.keys()]
+
+    def __set_pesada_simples__(self, param, attb):
+        self.pesada[param] = attb
+    
+    def __get_escudo_list__(self):
+        return [i for i in self.escudo.keys()]
+
+    def __set_escudo__(self, param, attb):
+        self.escudo[param] = attb
+
+    def __clone_armadura__(self, armadura_dict):
+        for armadura in armadura_dict:
+            armadura_obj = Armadura(
+                armadura,
+                armadura_dict[armadura]["preco"],
+                armadura_dict[armadura]["moeda"],
+                armadura_dict[armadura]["peso"],
+                1,
+                armadura_dict[armadura]["ca"],
+                armadura_dict[armadura]["furtividade"]
+            )
+            return armadura_obj

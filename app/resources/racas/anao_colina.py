@@ -2,7 +2,7 @@ from app.resources.racas.anao import Anao
 
 
 class AnaoColina(Anao):
-    def __init__(self, personagem):
+    def __init__(self):
         super().__init__()
         self.name = "ANÃO DA COLINA"
         self.__sub_description__ = "Como um anão da colina, você tem sentidos aguçados, maior intuição e notável " \

@@ -2,7 +2,7 @@ from app.resources.racas.halfling import Halfling
 
 
 class HalflingPesLeves(Halfling):
-    def __init__(self, personagem):
+    def __init__(self):
         super().__init__()
         self.name = "HALFLING PÉS LEVES"
         self.__sub_description__ = "Como um halfling pés-leves, você pode esconder-se facilmente, mesmo usando " \
