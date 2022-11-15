@@ -81,7 +81,7 @@ class FabricaPersonagem(ABC):
                     person_class_name = random.choice(choices)
                 else:
                     sys.exit("INPUT INCORRETO DE CLASSE")
-            person_class_name = "LADINO"
+            person_class_name = "BRUXO"
             match person_class_name.upper():
                 case "BARBARO":
                     self.person_class = barbaro.Barbaro(self)

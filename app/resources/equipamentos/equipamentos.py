@@ -151,7 +151,14 @@ class Equipamentos:
             "Anel de sinete de um duque imaginário": {"preco": 0, "moeda": "pp", "peso": 0},
             "Conjunto de dados viciados": {"preco": 1, "moeda": "pp", "peso": 0},
             "Garrafa de vidro tampada com líquido colorido": {"preco": 1, "moeda": "po", "peso": 1},
-            "Ferramentas de ladrão": {"preco": 25, "moeda": "po", "peso": 0.5}
+            "Ferramentas de ladrão": {"preco": 25, "moeda": "po", "peso": 0.5},
+            "Virotes (20)": {"preco": 1, "moeda": "po", "peso": 0.75},
+            "Bolsa de componentes": {"preco": 25, "moeda": "po", "peso": 1},
+            "Bastão": {"preco": 10, "moeda": "po", "peso": 1},
+            "Cajado": {"preco": 5, "moeda": "po", "peso": 2},
+            "Cristal": {"preco": 10, "moeda": "po", "peso": 0.5},
+            "Orbe": {"preco": 20, "moeda": "po", "peso": 1.5},
+            "Varinha": {"preco": 10, "moeda": "po", "peso": 0.5},
         }
 
     def __set_pacote__(self, pacote, attb):

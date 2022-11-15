@@ -1,9 +1,106 @@
 from app.builders.fabrica_abstrata.Classe import Classe
+from app.builders.prototipo.ItemPrototipo import ItemPrototipo
+
+import random
 
 class Bruxo(Classe):
-    def __init__(self):
+    def __init__(self, personagem):
         super().__init__()
         self.name = "BRUXO"
+        self.proficiency_bonus = "+2"
+        self.life = 8 + int(personagem.dices["modifiers"]["constitution"])
+        self.dices_life = "1d8"
+        self.knowledge =  ["Armaduras leves", "Armas simples"]
+        self.expertise = Bruxo.__set_skill_list__(personagem)
+        self.equip = Bruxo.__set_equip__(personagem)
+        self.endurance_tests = ["wisdom", "charisma"]
+
+    @staticmethod
+    def __set_skill_list__(personagem):
+        rogue_list = ["Arcanismo", "Enganação", "História", "Intimidação",
+                            "Investigação", "Natureza", "Religião"]
+        final_list = [i for i in rogue_list if i not in personagem.expertise]
+        return random.choices(final_list, k=2)
+
+    @staticmethod
+    def __set_equip__(personagem):
+        try:
+            prototipo = ItemPrototipo()
+
+            a = random.choice(["Besta Leve", "Arma Simples"])
+            item = None
+            item2 = None
+            item3 = None
+            item4 = None
+            item5 = None
+
+            if a == "Besta Leve":
+                item = prototipo.get_arma_distancia_simples(a)
+                item2 = prototipo.get_equipamento("Virotes (20)", 1)
+            else:
+                opcao = random.randint(1,2)
+                opcoes = {
+                    1: prototipo.get_random_arma_corpo_a_corpo_simples(),
+                    2: prototipo.get_random_arma_distancia_simples(),
+                }
+                item = opcoes[opcao]
+
+            personagem.equip["Armas"].append(item)
+            if item2 != None:
+                personagem.equip["Equipamentos"].append(item2)
+
+            b = random.choice(["Bolsa de componentes", "Foco arcano"])
+
+            if b == "Bolsa de componentes":
+                item = prototipo.get_equipamento(b, 1)
+            else:
+                item = prototipo.get_equipamento("Bastão", 1)
+                item2 = prototipo.get_equipamento("Cajado", 1)
+                item3 = prototipo.get_equipamento("Cristal", 1)
+                item4 = prototipo.get_equipamento("Orbe", 1)
+                item5 = prototipo.get_equipamento("Varinha", 1)
+                personagem.equip["Equipamentos"].append(item2)
+                personagem.equip["Equipamentos"].append(item3)
+                personagem.equip["Equipamentos"].append(item4)
+                personagem.equip["Equipamentos"].append(item5)
+
+            personagem.equip["Equipamentos"].append(item)
+
+            item = prototipo.get_armadura_leve("Couro")
+            personagem.equip["Armaduras"].append(item)
+
+            opcao = random.randint(1,2)
+            opcoes = {
+                1: prototipo.get_random_arma_corpo_a_corpo_simples(),
+                2: prototipo.get_random_arma_distancia_simples(),
+            }
+            item = opcoes[opcao]
+            personagem.equip["Armas"].append(item)
+
+            item = prototipo.get_arma_corpo_a_corpo_simples("Adaga")
+            personagem.equip["Armas"].append(item)
+            item = prototipo.get_arma_corpo_a_corpo_simples("Adaga")
+            personagem.equip["Armas"].append(item)
+
+
+            nome = random.choice(["Pacote de Estudioso", "Pacote de Explorador"])
+            pacote = prototipo.get_pacote(nome)
+            prototipo.add_equipamentos_pacote(pacote, personagem)
+
+        except Exception as e:
+            print(e)
 
     def get_name(self):
-        return "CLASSE: " + self.name
+        return f"CLASSE: {self.name}"
+
+    def __set_config__(self, personagem):
+        personagem.life += self.life
+        for i in self.endurance_tests:
+            personagem.dices["resistence_test"].append(i)
+        personagem.proficiency_bonus = self.proficiency_bonus
+
+        for n in self.knowledge:
+            personagem.knowledge.append(n)
+
+        for m in self.expertise:
+            personagem.expertise.append(m)
