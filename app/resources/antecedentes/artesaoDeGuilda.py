@@ -108,6 +108,8 @@ class ArtesaoDeGuilda(Antecedente):
         return random.choice(flaw)
     
     def __set_equips__(self, personagem):
+        prototipo = ItemPrototipo()
+        
         nome = random.choice([
             "Ferramentas de carpinteiro", 
             "Ferramentas de cartógrafo",
@@ -127,16 +129,16 @@ class ArtesaoDeGuilda(Antecedente):
             "Suprimentos de caligrafia",
             "Utensílios de cozinheiro"
         ])
-        equip = ItemPrototipo().get_equipamento(nome, 1)
+        equip = prototipo.get_equipamento(nome, 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = ItemPrototipo().get_equipamento("Carta de apresentação da guilda", 1)
+        equip = prototipo.get_equipamento("Carta de apresentação da guilda", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = ItemPrototipo().get_equipamento("Roupas de viajante", 1)
+        equip = prototipo.get_equipamento("Roupas de viajante", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = ItemPrototipo().get_equipamento("Algibeira", 1)
+        equip = prototipo.get_equipamento("Algibeira", 1)
         personagem.equip["Equipamentos"].append(equip)
 
     def __set_config__(self, personagem):

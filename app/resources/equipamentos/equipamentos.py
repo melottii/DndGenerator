@@ -81,6 +81,8 @@ class Equipamentos:
         }
 
         self.equipamentos = {
+            "Aljava": {"preco": 1, "moeda": "po", "peso": 0.5},
+            "Flechas (20)": {"preco": 1, "moeda": "po", "peso": 0.5},
             "Mochila": {"preco": 2, "moeda": "po", "peso": 2.5},
             "Saco de dormir": { "preco": 1, "moeda": "po", "peso": 3.5},
             "Fantasia": {"preco": 1, "moeda": "po", "peso": 0},
@@ -148,7 +150,8 @@ class Equipamentos:
             "Baralho de cartas marcadas": {"preco": 5, "moeda": "pp", "peso": 0},
             "Anel de sinete de um duque imaginário": {"preco": 0, "moeda": "pp", "peso": 0},
             "Conjunto de dados viciados": {"preco": 1, "moeda": "pp", "peso": 0},
-            "Garrafa de vidro tampada com líquido colorido": {"preco": 1, "moeda": "po", "peso": 1}
+            "Garrafa de vidro tampada com líquido colorido": {"preco": 1, "moeda": "po", "peso": 1},
+            "Ferramentas de ladrão": {"preco": 25, "moeda": "po", "peso": 0.5}
         }
 
     def __set_pacote__(self, pacote, attb):

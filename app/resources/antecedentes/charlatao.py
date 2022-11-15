@@ -112,26 +112,28 @@ class Charlatao(Antecedente):
         return random.choice(flaw)
     
     def __set_equips__(self, personagem):
+        prototipo = ItemPrototipo()
+
         nome = random.choice(["Baralho de cartas marcadas","Anel de sinete de um duque imaginário" ])
-        equip = ItemPrototipo().get_equipamento(nome, 1)
+        equip = prototipo.get_equipamento(nome, 1)
         personagem.equip["Equipamentos"].append(equip)
     
-        equip = ItemPrototipo().get_equipamento("Roupas finas", 1)
+        equip = prototipo.get_equipamento("Roupas finas", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = ItemPrototipo().get_equipamento("Kit de disfarce", 1)
+        equip = prototipo.get_equipamento("Kit de disfarce", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = ItemPrototipo().get_equipamento("Ferramentas de trapaça", 1)
+        equip = prototipo.get_equipamento("Ferramentas de trapaça", 1)
         personagem.equip["Equipamentos"].append(equip)
     
-        equip = ItemPrototipo().get_equipamento("Garrafa de vidro tampada com líquido colorido", 10)
+        equip = prototipo.get_equipamento("Garrafa de vidro tampada com líquido colorido", 10)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = ItemPrototipo().get_equipamento("Conjunto de dados viciados", 1)
+        equip = prototipo.get_equipamento("Conjunto de dados viciados", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = ItemPrototipo().get_equipamento("Algibeira", 1)
+        equip = prototipo.get_equipamento("Algibeira", 1)
         personagem.equip["Equipamentos"].append(equip)
 
     def __set_config__(self, personagem):

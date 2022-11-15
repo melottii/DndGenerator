@@ -100,23 +100,25 @@ class Acolito(Antecedente):
         return random.choice(flaw)
 
     def __set_equips__(self, personagem):
-        equip = ItemPrototipo().get_equipamento("Símbolo sagrado", 1)
+        prototipo = ItemPrototipo()
+
+        equip = prototipo.get_equipamento("Símbolo sagrado", 1)
         personagem.equip["Equipamentos"].append(equip)
 
         nome = random.choice(["Livro de preces", "Conta de orações"])
-        equip = ItemPrototipo().get_equipamento(nome, 1)
+        equip = prototipo.get_equipamento(nome, 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = ItemPrototipo().get_equipamento("Vareta de incenso", 5)
+        equip = prototipo.get_equipamento("Vareta de incenso", 5)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = ItemPrototipo().get_equipamento("Vestimenta de acólito", 1)
+        equip = prototipo.get_equipamento("Vestimenta de acólito", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = ItemPrototipo().get_equipamento("Roupas comuns", 1)
+        equip = prototipo.get_equipamento("Roupas comuns", 1)
         personagem.equip["Equipamentos"].append(equip)
 
-        equip = ItemPrototipo().get_equipamento("Algibeira", 1)
+        equip = prototipo.get_equipamento("Algibeira", 1)
         personagem.equip["Equipamentos"].append(equip)
 
     def __set_config__(self, personagem):

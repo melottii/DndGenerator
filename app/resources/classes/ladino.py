@@ -1,6 +1,7 @@
 from app.builders.fabrica_abstrata.Classe import Classe
-import random
+from app.builders.prototipo.ItemPrototipo import ItemPrototipo
 
+import random
 
 class Ladino(Classe):
     def __init__(self, personagem):
@@ -12,9 +13,8 @@ class Ladino(Classe):
         self.knowledge =  ["Armaduras leves", "Armas simples", "Bestas de mão",
                                     "Espadas longas", "Rapieiras", "Espadas curtas", "Ferramentas de ladrão"]
         self.expertise = Ladino.__set_skill_list__(personagem)
-        self.equip = Ladino.__set_equip_list__(personagem)
+        self.equip = Ladino.__set_equip__(personagem)
         self.endurance_tests = ["dexterity", "intelligence"]
-        Ladino.__set_config__(self, personagem)
 
     @staticmethod
     def __set_skill_list__(personagem):
@@ -25,27 +25,47 @@ class Ladino(Classe):
         return random.choices(final_list, k=2)
 
     @staticmethod
-    def __set_equip_list__(personagem):
+    def __set_equip__(personagem):
         try:
-            equips = {"Armas": {}, "Armaduras": {}, "Equipamentos": []}
+            prototipo = ItemPrototipo()
+
             a = random.choice(["Rapieira", "Espada Longa"])
-            if a == "Rapieira":
-                equips["Armas"]["Rapieira"] = personagem.bag["Armas"].__get_corpo_a_corpo_marcial__(
-                    "Rapieira")
+            item = None
+            item2 = None
+            item3 = None
+
+            item = prototipo.get_arma_marcial(a)
+            personagem.equip["Armas"].append(item)
+
+            b = random.choice(["Arco Curto", "Espada Curta"])
+            if b == "Arco Curto":
+                item = prototipo.get_arma_distancia_simples(b)
+                item2 = prototipo.get_equipamento("Aljava", 1)
+                item3 = prototipo.get_equipamento("Flechas (20)", 1)
             else:
-                equips["Armas"]["Espada Longa"] = personagem.bag["Armas"].__get_corpo_a_corpo_marcial__("Espada Longa")
-            b = random.choice(["Machadinha", "Arma simples"])
-            if b == "Machadinha":
-                equips["Armas"]["Machadinha 1"] = personagem.bag["Armas"].__get_corpo_a_corpo_simples__("Machadinha")
-                equips["Armas"]["Machadinha 2"] = personagem.bag["Armas"].__get_corpo_a_corpo_simples__("Machadinha")
-            else:
-                a_random = random.choice(personagem.bag["Armas"].__get_corpo_a_corpo_simples_list__())
-                equips["Armas"][a_random] = personagem.bag["Armas"].__get_corpo_a_corpo_simples__(a_random)
-            for i in range(1, 5):
-                equips["Armas"]["Azagaia " + str(i)] = personagem.bag["Armas"].__get_corpo_a_corpo_simples__("Azagaia")
-            equips["Equipamentos"].append(
-                {"Pacote de Aventureiro": personagem.bag["Equipamentos"].__get_pacote__("Pacote de Aventureiro")})
-            return equips
+                item = prototipo.get_arma_marcial(b)
+
+            personagem.equip["Armas"].append(item)
+            if item2 != None:
+                personagem.equip["Equipamentos"].append(item2)
+            if item3 != None:
+                personagem.equip["Equipamentos"].append(item3)
+
+            item = prototipo.get_armadura_leve("Couro")
+            personagem.equip["Armaduras"].append(item)
+
+            item = prototipo.get_arma_corpo_a_corpo_simples("Adaga")
+            personagem.equip["Armas"].append(item)
+            item = prototipo.get_arma_corpo_a_corpo_simples("Adaga")
+            personagem.equip["Armas"].append(item)
+
+            item = prototipo.get_equipamento("Ferramentas de ladrão", 1)
+            personagem.equip["Equipamentos"].append(item)
+
+            nome = random.choice(["Pacote de Assaltante", "Pacote de Aventureiro", "Pacote de Explorador"])
+            pacote = prototipo.get_pacote(nome)
+            prototipo.add_equipamentos_pacote(pacote, personagem)
+
         except Exception as e:
             print(e)
 
@@ -63,11 +83,3 @@ class Ladino(Classe):
 
         for m in self.expertise:
             personagem.expertise.append(m)
-
-        for e in self.equip:
-            if e != "Equipamentos":
-                for k in self.equip[e]:
-                    personagem.equip[e][k] = self.equip[e][k]
-            else:
-                for b in range(len(self.equip[e])):
-                    personagem.equip[e].append(self.equip[e][0])

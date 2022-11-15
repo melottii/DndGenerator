@@ -81,14 +81,14 @@ class FabricaPersonagem(ABC):
                     person_class_name = random.choice(choices)
                 else:
                     sys.exit("INPUT INCORRETO DE CLASSE")
-            person_class_name = "BARBARO"
+            person_class_name = "LADINO"
             match person_class_name.upper():
                 case "BARBARO":
                     self.person_class = barbaro.Barbaro(self)
                 case "LADINO":
-                    self.person_class = ladino.Ladino()
+                    self.person_class = ladino.Ladino(self)
                 case "BRUXO":
-                    self.person_class = bruxo.Bruxo()
+                    self.person_class = bruxo.Bruxo(self)
             self.person_class.__set_config__(self)
         except Exception as e:
             sys.exit(f"ERRO AO DEFINIR CLASSE DO PERSONAGEM: {e}")

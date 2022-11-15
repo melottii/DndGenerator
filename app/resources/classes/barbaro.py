@@ -24,33 +24,35 @@ class Barbaro(Classe):
     @staticmethod
     def __set_equip__(personagem):
         try:
+            prototipo = ItemPrototipo()
+
             a = random.choice(["Machado Grande", "Arma Marcial"])
             item = None
             item2 = None
 
             if a == "Machado Grande":
-                item = ItemPrototipo().get_arma_marcial(a)
+                item = prototipo.get_arma_marcial(a)
             else:
-                item = ItemPrototipo().get_random_arma_marcial()
+                item = prototipo.get_random_arma_marcial()
             personagem.equip["Armas"].append(item)
 
             b = random.choice(["Machadinha", "Arma simples"])
             if b == "Machadinha":
-                item = ItemPrototipo().get_arma_corpo_a_corpo_simples(b)
-                item2 = ItemPrototipo().get_arma_corpo_a_corpo_simples(b)
+                item = prototipo.get_arma_corpo_a_corpo_simples(b)
+                item2 = prototipo.get_arma_corpo_a_corpo_simples(b)
             else:
-                item = ItemPrototipo().get_random_arma_corpo_a_corpo_simples()
+                item = prototipo.get_random_arma_corpo_a_corpo_simples()
 
             personagem.equip["Armas"].append(item)
             if item2 != None:
                 personagem.equip["Armas"].append(item2)
 
             for i in range(1, 5):
-                item = ItemPrototipo().get_arma_corpo_a_corpo_simples("Azagaia")
+                item = prototipo.get_arma_corpo_a_corpo_simples("Azagaia")
                 personagem.equip["Armas"].append(item)
 
-            pacote = ItemPrototipo().get_pacote("Pacote de Aventureiro")
-            ItemPrototipo().add_equipamentos_pacote(pacote, personagem)
+            pacote = prototipo.get_pacote("Pacote de Aventureiro")
+            prototipo.add_equipamentos_pacote(pacote, personagem)
 
         except Exception as e:
             print(e)

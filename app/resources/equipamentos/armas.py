@@ -3,7 +3,7 @@ from app.builders.prototipo.Arma import Arma
 class Armas:
     def __init__(self):
         self.corpo_a_corpo_simples = {
-            "Adaga": {"preco": 2, "moeda": "po","dano": "1d4", "peso": "0.5 kg",
+                "Adaga": {"preco": 2, "moeda": "po","dano": "1d4", "peso": "0.5 kg",
                         "propriedades": ["Acuidade", "Leve", "Arremesso (distância 6/18)"]},
 
                 "Azagaia": {"preco": 5, "moeda": "pp","dano": "1d6", "peso": "1 kg",
