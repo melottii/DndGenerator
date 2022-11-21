@@ -27,6 +27,8 @@ class DndGenerator:
         print(self.character.background.background_format["ideal"])
         print(self.character.background.background_format["flaw"])
         print(self.character.background.background_format["bond"])
+        print("Truques: ", list(self.character.magic[0].keys()))
+        print("Magias: ", list(self.character.magic[1].keys()))
     
     def printa_equipamentos(self):
         for tipo in self.character.equip:

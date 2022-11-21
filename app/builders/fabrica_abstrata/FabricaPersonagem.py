@@ -39,8 +39,7 @@ class FabricaPersonagem(ABC):
                       "modifiers": {'strength': 0, 'dexterity': 0,
                                     'constitution': 0, 'intelligence': 0,
                                     'wisdom': 0, 'charisma': 0}}
-        self.magic = {"0": {str: []},
-                      "1": {str: []}}
+        self.magic = {}
 
     def __set_name__(self, name: str):
         self.name = name
@@ -71,27 +70,27 @@ class FabricaPersonagem(ABC):
             sys.exit(f"ERRO AO DEFINIR RAÇA DO PERSONAGEM: {e}")
 
     def __set_class__(self, person_class: str):
-        try:
-            choices = ["BARBARO", "LADINO", "BRUXO"]
-            if person_class.upper() == "":
+        # try:
+        choices = ["BARBARO", "LADINO", "BRUXO"]
+        if person_class.upper() == "":
+            person_class_name = random.choice(choices)
+        else:
+            person_class_name = re.sub("[0-9]", "", unidecode(person_class.upper()))
+            if person_class_name not in choices:
                 person_class_name = random.choice(choices)
             else:
-                person_class_name = re.sub("[0-9]", "", unidecode(person_class.upper()))
-                if person_class_name not in choices:
-                    person_class_name = random.choice(choices)
-                else:
-                    sys.exit("INPUT INCORRETO DE CLASSE")
-            person_class_name = "BRUXO"
-            match person_class_name.upper():
-                case "BARBARO":
-                    self.person_class = barbaro.Barbaro(self)
-                case "LADINO":
-                    self.person_class = ladino.Ladino(self)
-                case "BRUXO":
-                    self.person_class = bruxo.Bruxo(self)
-            self.person_class.__set_config__(self)
-        except Exception as e:
-            sys.exit(f"ERRO AO DEFINIR CLASSE DO PERSONAGEM: {e}")
+                sys.exit("INPUT INCORRETO DE CLASSE")
+        person_class_name = "BRUXO"
+        match person_class_name.upper():
+            case "BARBARO":
+                self.person_class = barbaro.Barbaro(self)
+            case "LADINO":
+                self.person_class = ladino.Ladino(self)
+            case "BRUXO":
+                self.person_class = bruxo.Bruxo(self)
+        self.person_class.__set_config__(self)
+        # except Exception as e:
+        #     sys.exit(f"ERRO AO DEFINIR CLASSE DO PERSONAGEM: {e}")
 
     def __set_status__(self):
         for attribute in self.dices["rolls"].keys():
