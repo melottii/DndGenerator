@@ -3,6 +3,7 @@ import random
 from app.builders.fabrica_abstrata.Antecedente import Antecedente
 from app.builders.prototipo.ItemPrototipo import ItemPrototipo
 
+
 class Charlatao(Antecedente):
     def __init__(self, personagem):
         super().__init__()
@@ -114,7 +115,7 @@ class Charlatao(Antecedente):
     def __set_equips__(self, personagem):
         prototipo = ItemPrototipo()
 
-        nome = random.choice(["Baralho de cartas marcadas","Anel de sinete de um duque imaginário" ])
+        nome = random.choice(["Baralho de cartas marcadas", "Anel de sinete de um duque imaginário"])
         equip = prototipo.get_equipamento(nome, 1)
         personagem.equip["Equipamentos"].append(equip)
     

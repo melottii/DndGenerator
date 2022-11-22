@@ -3,6 +3,7 @@ import random
 from app.builders.fabrica_abstrata.Antecedente import Antecedente
 from app.builders.prototipo.ItemPrototipo import ItemPrototipo
 
+
 class Acolito(Antecedente):
     def __init__(self, personagem):
         super().__init__()

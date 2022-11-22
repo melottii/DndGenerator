@@ -3,6 +3,7 @@ from app.builders.prototipo.ItemPrototipo import ItemPrototipo
 
 import random
 
+
 class Barbaro(Classe):
     def __init__(self, personagem):
         super().__init__()
@@ -44,7 +45,7 @@ class Barbaro(Classe):
                 item = prototipo.get_random_arma_corpo_a_corpo_simples()
 
             personagem.equip["Armas"].append(item)
-            if item2 != None:
+            if item2 is not None:
                 personagem.equip["Armas"].append(item2)
 
             for i in range(1, 5):
@@ -53,6 +54,7 @@ class Barbaro(Classe):
 
             pacote = prototipo.get_pacote("Pacote de Aventureiro")
             prototipo.add_equipamentos_pacote(pacote, personagem)
+            print(prototipo)
 
         except Exception as e:
             print(e)

@@ -6,14 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="2cf39aa1-598c-4cbc-b66b-4df3bdbbea96" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/builders/FabricaPersonagem.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/builders/FabricaPersonagem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/builders/BuilderPersonagem.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/builders/BuilderPersonagem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/builders/fabrica_abstrata/FabricaPersonagem.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/builders/fabrica_abstrata/FabricaPersonagem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/builders/fabrica_abstrata/Raca.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/builders/fabrica_abstrata/Raca.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/builders/prototipo/Arma.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/builders/prototipo/Arma.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/builders/prototipo/Armadura.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/builders/prototipo/Armadura.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/builders/prototipo/Equipamento.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/builders/prototipo/Equipamento.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/builders/prototipo/ItemPrototipo.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/builders/prototipo/ItemPrototipo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/resources/antecedentes/acolito.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/resources/antecedentes/acolito.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/resources/antecedentes/artesaoDeGuilda.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/resources/antecedentes/artesaoDeGuilda.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/resources/antecedentes/charlatao.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/resources/antecedentes/charlatao.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/resources/classes/barbaro.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/resources/classes/barbaro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/resources/classes/bruxo.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/resources/classes/bruxo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/resources/classes/ladino.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/resources/classes/ladino.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/resources/equipamentos/armaduras.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/resources/equipamentos/armaduras.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/resources/equipamentos/armas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/resources/equipamentos/armas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/resources/equipamentos/equipamentos.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/resources/equipamentos/equipamentos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interface/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/interface/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,12 +81,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\matheus.melotti\AppData\Local\Programs\Python\Python310\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/interface" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/interface/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -123,6 +132,7 @@
       <workItem from="1668164245683" duration="4399000" />
       <workItem from="1668169940475" duration="1224000" />
       <workItem from="1668171198321" duration="189000" />
+      <workItem from="1669113666802" duration="4837000" />
     </task>
     <servers />
   </component>
@@ -143,7 +153,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DndGenerator$FabricaPersonagem.coverage" NAME="FabricaPersonagem Coverage Results" MODIFIED="1667905722595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/builders" />
     <SUITE FILE_PATH="coverage/DndGenerator$barbaro.coverage" NAME="barbaro Coverage Results" MODIFIED="1668170020299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/resources/classes" />
-    <SUITE FILE_PATH="coverage/DndGenerator$rpg_maker.coverage" NAME="rpg_maker Coverage Results" MODIFIED="1668171125737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/interface" />
+    <SUITE FILE_PATH="coverage/DndGenerator$rpg_maker.coverage" NAME="rpg_maker Coverage Results" MODIFIED="1669118520788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DndGenerator$main.coverage" NAME="main Coverage Results" MODIFIED="1668170025492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/interface" />
   </component>
 </project>

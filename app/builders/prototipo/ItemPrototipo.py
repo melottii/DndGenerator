@@ -4,6 +4,7 @@ from app.resources.equipamentos.equipamentos import Equipamentos
 
 import random
 
+
 class ItemPrototipo:
     def __init__(self):
         self.armas = Armas()

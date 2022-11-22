@@ -3,6 +3,7 @@ from app.builders.prototipo.ItemPrototipo import ItemPrototipo
 
 import random
 
+
 class Ladino(Classe):
     def __init__(self, personagem):
         super().__init__()
@@ -10,8 +11,8 @@ class Ladino(Classe):
         self.proficiency_bonus = "+2"
         self.life = 8 + int(personagem.dices["modifiers"]["constitution"])
         self.dices_life = "1d8"
-        self.knowledge =  ["Armaduras leves", "Armas simples", "Bestas de mão",
-                                    "Espadas longas", "Rapieiras", "Espadas curtas", "Ferramentas de ladrão"]
+        self.knowledge = ["Armaduras leves", "Armas simples", "Bestas de mão",
+                          "Espadas longas", "Rapieiras", "Espadas curtas", "Ferramentas de ladrão"]
         self.expertise = Ladino.__set_skill_list__(personagem)
         self.equip = Ladino.__set_equip__(personagem)
         self.endurance_tests = ["dexterity", "intelligence"]
@@ -19,8 +20,8 @@ class Ladino(Classe):
     @staticmethod
     def __set_skill_list__(personagem):
         rogue_list = ["Acrobacia", "Atletismo", "Atuação", "Enganação", 
-                                "Furtividade", "Intimidação", "Intuição", "Investigação",
-                                "Percepção", "Persuasão", "Prestidigitação"]
+                      "Furtividade", "Intimidação", "Intuição", "Investigação",
+                      "Percepção", "Persuasão", "Prestidigitação"]
         final_list = [i for i in rogue_list if i not in personagem.expertise]
         return random.choices(final_list, k=2)
 
@@ -30,7 +31,6 @@ class Ladino(Classe):
             prototipo = ItemPrototipo()
 
             a = random.choice(["Rapieira", "Espada Longa"])
-            item = None
             item2 = None
             item3 = None
 
@@ -46,9 +46,9 @@ class Ladino(Classe):
                 item = prototipo.get_arma_marcial(b)
 
             personagem.equip["Armas"].append(item)
-            if item2 != None:
+            if item2 is not None:
                 personagem.equip["Equipamentos"].append(item2)
-            if item3 != None:
+            if item3 is not None:
                 personagem.equip["Equipamentos"].append(item3)
 
             item = prototipo.get_armadura_leve("Couro")

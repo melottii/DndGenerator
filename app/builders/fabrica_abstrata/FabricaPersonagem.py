@@ -9,6 +9,7 @@ from app.resources.classes import bruxo, barbaro, ladino
 from app.resources.racas import halfling_pes_leves, halfling_robusto, anao_colina, anao_montanha
 from app.resources.antecedentes import acolito, artesaoDeGuilda, charlatao
 
+
 class FabricaPersonagem(ABC):
     def __init__(self):
         self.name = str
@@ -39,7 +40,8 @@ class FabricaPersonagem(ABC):
                       "modifiers": {'strength': 0, 'dexterity': 0,
                                     'constitution': 0, 'intelligence': 0,
                                     'wisdom': 0, 'charisma': 0}}
-        self.magic = {}
+        self.magic = {0: {},
+                      1: {}}
 
     def __set_name__(self, name: str):
         self.name = name
@@ -53,8 +55,6 @@ class FabricaPersonagem(ABC):
                 race_name = re.sub("[0-9]", "", unidecode(race.upper()))
                 if race_name not in choices:
                     race_name = random.choice(choices)
-                else:
-                    sys.exit("INPUT INCORRETO DE CLASSE")
 
             match race_name:
                 case "ANAO DA COLINA":
@@ -70,27 +70,24 @@ class FabricaPersonagem(ABC):
             sys.exit(f"ERRO AO DEFINIR RAÇA DO PERSONAGEM: {e}")
 
     def __set_class__(self, person_class: str):
-        # try:
-        choices = ["BARBARO", "LADINO", "BRUXO"]
-        if person_class.upper() == "":
-            person_class_name = random.choice(choices)
-        else:
-            person_class_name = re.sub("[0-9]", "", unidecode(person_class.upper()))
-            if person_class_name not in choices:
+        try:
+            choices = ["BARBARO", "LADINO", "BRUXO"]
+            if person_class.upper() == "":
                 person_class_name = random.choice(choices)
             else:
-                sys.exit("INPUT INCORRETO DE CLASSE")
-        person_class_name = "BRUXO"
-        match person_class_name.upper():
-            case "BARBARO":
-                self.person_class = barbaro.Barbaro(self)
-            case "LADINO":
-                self.person_class = ladino.Ladino(self)
-            case "BRUXO":
-                self.person_class = bruxo.Bruxo(self)
-        self.person_class.__set_config__(self)
-        # except Exception as e:
-        #     sys.exit(f"ERRO AO DEFINIR CLASSE DO PERSONAGEM: {e}")
+                person_class_name = re.sub("[0-9]", "", unidecode(person_class.upper()))
+                if person_class_name not in choices:
+                    person_class_name = random.choice(choices)
+            match person_class_name.upper():
+                case "BARBARO":
+                    self.person_class = barbaro.Barbaro(self)
+                case "LADINO":
+                    self.person_class = ladino.Ladino(self)
+                case "BRUXO":
+                    self.person_class = bruxo.Bruxo(self)
+            self.person_class.__set_config__(self)
+        except Exception as e:
+            sys.exit(f"ERRO AO DEFINIR CLASSE DO PERSONAGEM: {e}")
 
     def __set_status__(self):
         for attribute in self.dices["rolls"].keys():
