@@ -1,10 +1,9 @@
 from app.builders.BuilderPersonagem import BuilderPersonagem
-from app.builders.Usuario import Usuario
+from sessao import *
 
 class DndGenerator:
     def __init__(self):
-        self.user = Usuario("Matheus",
-                            "matheus.melotti@gmail.com")
+        self.user = login("vinicius@gmail.com", "123")
         self.character = BuilderPersonagem()
 
     def printa_usuario(self):
@@ -44,4 +43,5 @@ if __name__ == "__main__":
                                     "",
                                     "",
                                     "")
+    print("Usuário: ", first_person.user.__get_nome__())
     first_person.printa_personagem()
