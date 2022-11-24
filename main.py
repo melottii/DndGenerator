@@ -1,3 +1,8 @@
+from datetime import datetime
+import json
+import os
+import re
+
 from app.builders.BuilderPersonagem import BuilderPersonagem
 from app.builders.Usuario import Usuario
 
@@ -53,6 +58,8 @@ class DndGenerator:
         print(self.user.email)
 
     def printa_personagem(self):
+        print(self.define_equipamentos())
+        """
         print(self.character.name)
         print(self.character.race.name)
         print(self.character.person_class.name)
@@ -70,16 +77,59 @@ class DndGenerator:
         print(self.character.background.background_format["bond"])
         print("Truques: ", list(self.character.magic[0].keys()))
         print("Magias: ", list(self.character.magic[1].keys()))
+        """
 
-    def printa_equipamentos(self):
+    def define_equipamentos(self):
+        equipamentos = {}
         for tipo in self.character.equip:
-            print("\n" + tipo.upper() + ":")
+            equipamentos[tipo.upper()] = {}
             for equipamento in self.character.equip[tipo]:
-                print(equipamento.nome, "x", equipamento.quantidade)
+                equipamentos[tipo.upper()][equipamento.nome] = {"PREÇO": equipamento.preco,
+                                                                "MOEDA": equipamento.moeda,
+                                                                "PESO": equipamento.peso,
+                                                                "QUANTIDADE": equipamento.quantidade}
+        return equipamentos
+
+    def json_output(self):
+        date_now = re.sub(r"[.\:\-\ ]", "", str(datetime.now()))
+        person_name = re.sub(r"[.\:\-\ ]", "", str(self.character.name))+"_" \
+            if re.sub(r"[.\:\-\ ]", "", str(self.character.name)) != "" else ""
+        json_file = open(os.path.join(f"..\\DndGenerator\\app\\outputs\\{person_name + date_now}.json"), 'w')
+        data = {person_name: {
+            "NAME": self.character.name,
+            "RACE": {"NAME": self.character.race.name,
+                     "DESCRIPTION": self.character.race.__get_description__(),
+                     "RESTRICTION": self.character.race.__get_restrictions__(),
+                     "SKILLS": self.character.race.__get_skills__(),
+                     },
+            "CLASS": {"NAME": self.character.person_class.__get_name__(),
+                      "DICES LIFE": self.character.person_class.__get_dices_life__(),
+                      "SKILLS": self.character.person_class.__get_skills__()
+                      },
+            "TREND": self.character.trend,
+            "LIFE": self.character.life,
+            "ARMOR CLASS": self.character.armor_class,
+            "DICES": self.character.dices,
+            "EQUIP": DndGenerator.define_equipamentos(self),
+            "EXPERTISE": self.character.expertise,
+            "KNOWLEDGE": self.character.knowledge,
+            "IDIOM": self.character.idiom,
+            "BACKGROUND": {"NAME": self.character.background.__get_name__(),
+                           "TYPE": self.character.background.__get_type__(),
+                           "PERSONALITY TRAIT": self.character.background.__get_personalityTrait__(),
+                           "IDEAL": self.character.background.__get_ideal__(),
+                           "BOND": self.character.background.__get_bond__(),
+                           "FLAW": self.character.background.__get_flaw__()
+                           },
+            "MONEY": self.character.money,
+            "MAGIC": self.character.magic
+        }}
+        json.dump(data, json_file, indent=1)
 
 
 if __name__ == "__main__":
     first_person = DndGenerator()
     chosen = first_person.define_escolhas()
     first_person.character = first_person.character.director(chosen[0], chosen[1], chosen[2], chosen[3])
-    first_person.printa_personagem()
+    # first_person.printa_personagem()
+    first_person.json_output()

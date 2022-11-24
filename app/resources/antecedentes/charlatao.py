@@ -21,29 +21,23 @@ class Charlatao(Antecedente):
 
         Charlatao.__set_config__(self, personagem)
 
-    @staticmethod
-    def __get_name__(self, **kwargs):
-        return "ANTECEDENTE: " + self.background_format["name"]
+    def __get_name__(self):
+        return self.background_format["name"]
 
-    @staticmethod
-    def __get_type__(self, **kwargs):
-        return "VARIAÇÃO DO ANTECEDENTE: " + self.background_format["type"]
+    def __get_type__(self):
+        return self.background_format["type"]
 
-    @staticmethod
-    def __get_personalityTrait__(self, **kwargs):
-        return f"TRAÇOS DE PERSONALIDADE 1: {self.background_format['personality_trait'][0]}\n" \
-               f"TRAÇOS DE PERSONALIDADE 2: {self.background_format['personality_trait'][1]}"
+    def __get_personalityTrait__(self):
+        return self.background_format['personality_trait'][0], self.background_format['personality_trait'][1]
 
-    @staticmethod
-    def __get_ideal__(self, **kwargs):
-        return "IDEAL: " + self.background_format["ideal"]
+    def __get_ideal__(self):
+        return self.background_format["ideal"]
 
-    @staticmethod
-    def __get_bond__(self, **kwargs):
-        return "VINCULO: " + self.background_format["bond"]
+    def __get_bond__(self):
+        return self.background_format["bond"]
 
-    def __get_flaw__(self, **kwargs):
-        return "DEFEITO: " + self.background_format["flaw"]
+    def __get_flaw__(self):
+        return self.background_format["flaw"]
 
     @staticmethod
     def __set_type__():

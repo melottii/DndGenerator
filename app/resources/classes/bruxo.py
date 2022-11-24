@@ -297,6 +297,239 @@ class Bruxo(Classe):
         self.expertise = Bruxo.__set_skill_list__(personagem)
         self.equip = Bruxo.__set_equip__(personagem)
         self.endurance_tests = ["wisdom", "charisma"]
+        self.skills = {"MAGIAS DE PACTO": "Sua pesquisa arcana e a magia outorgada a você por seu patrono, lhe concedem"
+                                          " uma gama de magias. Veja o capítulo 10 para as regras gerais de conjuração"
+                                          " e o capítulo 11 para a lista de magias de bruxo. TRUQUES Você conhece dois"
+                                          " truques, à sua escolha, da lista de magias de bruxo. Você aprende truques "
+                                          "de bruxo adicionais, à sua escolha, em níveis mais altos, como mostrado na"
+                                          " coluna Truques Conhecidos da tabela O Bruxo. ESPAÇOS DE MAGIA A tabela O"
+                                          " Bruxo mostra quantos espaços de magia você possui. A tabela também mostra"
+                                          " qual o nível desses espaços; todos os seus espaços de magia são do mesmo"
+                                          " nível. Para conjurar uma magia de bruxo de 1° nível ou superior, você deve"
+                                          " gastar uma espaço de magia. Você recobra todos os espaços de magia gastos"
+                                          " quando você completa um descanso curto ou longo. Por exemplo, quando você"
+                                          " atingir o 5° nível, você terá dois espaços de magia de 3° nível. Para"
+                                          " conjurar a magia de 1° nível onda trovejante, você deve gastar um desses"
+                                          " espaços e você a conjura como uma magia de 3° nível. "
+                                          "MAGIAS CONHECIDAS DE 1° NÍVEL E SUPERIORES No 1° nível, você conhece duas"
+                                          " magias de 1° nível, à sua escolha da lista de magias de bruxo. A coluna"
+                                          " Magias Conhecidas na tabela O Bruxo mostra quando você aprende mais magias"
+                                          " de bruxo, à sua escolha, de 1° nível ou superior. Cada uma dessas magias"
+                                          " deve ser de um nível a que você tenha acesso, como mostrado na tabela na"
+                                          " coluna de Nível de Magia para o seu nível. Quando você alcança o 6° nível,"
+                                          " por exemplo, você aprende uma nova magia de bruxo, que pode ser de 1°, 2°"
+                                          " ou 3° nível. Além disso, quando você adquire um nível nessa classe, você"
+                                          " pode escolher uma magia de bruxo que você conheça e substituí-la por outra"
+                                          " magia da lista de magias de bruxo, que também deve ser de um nível ao qual"
+                                          " você tenha espaços de magia. HABILIDADE DE CONJURAÇÃO Sua habilidade de"
+                                          " conjuração é Carisma para suas magias de bruxo, portanto, você usa seu"
+                                          " Carisma sempre que alguma magia se referir à sua habilidade de conjurar"
+                                          " magias. Além disso, você usa o seu modificador de Carisma para definir a"
+                                          " CD dos testes de resistência para as magias de bruxo que você conjura e"
+                                          " quando você realiza uma jogada de ataque com uma magia. CD para suas"
+                                          " magias = 8 + bônus de proficiência + seu modificador de Carisma Modificador"
+                                          " de ataque de magia = seu bônus de proficiência + seu modificador de Carisma"
+                                          " FOCO DE CONJURAÇÃO Você pode usar um foco arcano (encontrado no capítulo 5)"
+                                          " como foco de conjuração das suas magias de bruxo.",
+                       "PATRONO TRANSCENDENTAL": "No 1° nível, você conclui uma barganha com um ser transcendental, "
+                                                 "à sua escolha: a Arquifada, o Corruptor ou o Grande Antigo, cada um"
+                                                 " deles é detalhado no final da descrição da classe. Sua escolha lhe"
+                                                 " confere traços no 1° nível e novamente no6°, 10° e 14° nível.",
+                       "DEFINIÇÃO DE PATRONO": Bruxo.__set_patron__(self)
+                       }
+
+    def __set_patron__(self):
+        patron = random.choice(["Arquifada", "Corruptor", "Grande Antigo"])
+        description, skills = None, None
+        if patron == "Arquifada":
+            description = "Seu patrono é um senhor ou senhora das fadas, uma criatura lendária que detém segredos " \
+                          "que foram esquecidos antes das raças mortais nascerem. As motivações desses seres são, " \
+                          "muitas vezes, inescrutáveis e, as vezes, excêntricas e podem envolver esforços para " \
+                          "adquirir grandes poderes mágicos ou resolução de desavenças antigas. Incluem-se dentre" \
+                          " esses seres o Príncipe do Frio; a Rainha do Ar e Trevas, regente da Corte do Crepúsculo;" \
+                          " Titania da Corte do Verão; seu cônjuge, Oberon, o Senhor Verdejante; Hyrsam, o Príncipe" \
+                          " dos Tolos; e bruxas antigas."
+            skills = "PRESENÇA FEÉRICA A partir do 1° nível, seu patrono concede a você a habilidade de projetar a" \
+                     " sedução e temeridade da presença da fada. Com uma ação, você pode fazer com que cada criatura" \
+                     " num cubo de 3 metros centrado em você, faça um teste de resistência de Sabedoria com uma CD" \
+                     " igual a de sua magia de bruxo. As criaturas que falharem no teste ficaram enfeitiçadas ou" \
+                     " amedrontadas por você (à sua escolha) até o início do seu próximo turno. Quando você usar" \
+                     " essa característica, você não poderá utilizá-la novamente antes de realizar um descanso curto" \
+                     " ou longo. NÉVOA DE FUGA A partir do 6° nível, você pode desaparecer em uma lufada de névoa em" \
+                     " resposta a alguma ofensa. Quando você sofrer dano, você pode usar sua reação para ficar" \
+                     " invisível e se teletransportar a até 18 metros para um espaço desocupado que você possa ver." \
+                     " Você permanece invisível até o início do seu próximo turno ou até realizar um ataque ou " \
+                     "conjurar uma magia. Após usar essa características, você não poderá utilizá-la novamente até" \
+                     " terminar um descanso curto ou longo. DEFESA SEDUTORA A partir do 10° nível, seu patrono ensina" \
+                     " você como voltar as magias de efeito mental dos seus inimigos contra eles. Você não pode ser" \
+                     " enfeitiçado e, quando outra criatura tenta enfeitiçá-lo, você pode usar sua reação para tentar" \
+                     " reverter o encanto de volta aquela criatura. A criatura deve ser bem sucedida num teste de" \
+                     " resistência de Sabedoria contra a CD da sua magia de bruxo ou ficara enfeitiçado por 1 minuto" \
+                     " ou até a criatura sofrer dano. DELÍRIO SOMBRIO Começando no 14° nível, você pode imergir uma" \
+                     " criatura num reino ilusório. Com um ação, escolha uma criatura que você possa ver a até 18" \
+                     " metros de você. Ela deve ser bem sucedida num teste de resistência de Sabedoria contra a CD da" \
+                     " sua magia de bruxo. Se ela falhar, ela ficará enfeitiçada ou amedrontada por você" \
+                     " (à sua escolha) por 1 minuto ou até você quebrar sua concentração (como se você estivesse se" \
+                     " concentrando em uma magia). Esse efeito termina prematuramente se a criatura sofrer dano. " \
+                     "Até que essa ilusão termine, a criatura acredita que está perdida num reino enevoado, a aparência" \
+                     " desse reino fica a seu critério. A criatura só pode ver e ouvir a si mesma, a você e a sua" \
+                     " ilusão. Você deve terminar um descanso curto ou longo antes de poder usar essa característica" \
+                     " novamente."
+
+            self.magic[1]["Fogo das Fadas (Evocação)"] = {
+                "Tempo de Conjuração": "1 Ação",
+                "Alcance": "18 metros",
+                "Componentes": "V",
+                "Duração": "Concentração, até 1 minuto.",
+                "Descrição": "Cada objeto num cubo de 6 metros dentro do alcance fica delineado com luz azul, verde ou"
+                             " violeta (à sua escolha). Qualquer criatura na área, quando a magia é conjurada, também"
+                             " fica delineada com luz, se falhar num teste de resistência de Destreza. Pela duração, "
+                             "os objetos e criaturas afetadas emitem penumbra num raio de 3 metros. Qualquer jogada de"
+                             " ataque contra uma criatura afetada ou objeto tem vantagem, se o atacante puder ver o "
+                             "alvo e, a criatura afetada ou objeto não recebe benefício por estar invisível."
+            }
+            self.magic[1]["Sono (Encantamento)"] = {
+                "Tempo de Conjuração": "1 Ação",
+                "Alcance": "36 metros",
+                "Componentes": "V, S, M (um punhado de areia fina, pétalas de rosas ou um grilo)",
+                "Duração": "1 minuto",
+                "Descrição": "Essa magia põem as criaturas num entorpecimento mágico. Jogue 5d8; o total é a quantidade"
+                             " de pontos de vida de criaturas afetados pela magia. As criaturas numa área de 6 metros "
+                             "de raio, centrada no ponto escolhido, dentro do alcance, são afetadas em ordem ascendente"
+                             " dos pontos de vida atuais delas (ignorando criaturas inconscientes). Começando com as "
+                             "criaturas com menos pontos de vida atuais, cada criatura afetada por essa magia cai "
+                             "inconsciente até a magia acabar, sofrer dano ou alguém usar sua ação para sacudi-la ou"
+                             " esbofeteá-la até acordar. Subtraia os pontos de vida de cada criatura do total antes de "
+                             "seguir para a próxima criatura com menos pontos de vida atuais. Os pontos de vida atuais "
+                             "da criatura devem ser iguais ou menores que o valor restante para que a criatura possa "
+                             "ser afetada. Mortos-vivos e criaturas imunes a serem enfeitiçadas não são afetadas por "
+                             "essa magia. Em Níveis Superiores. Quando você conjurar essa magia usando um espaço de "
+                             "magia de 2º nível ou superior, jogue 2d8 adicionais para cada nível do espaço acima do "
+                             "1°."
+            }
+
+        elif patron == "Corruptor":
+            description = "Você realizou um pacto com um corruptor dos planos de existência inferiores, um ser cujos " \
+                          "objetivos são o mal, mesmo se você se opor a esses objetivos. Tais seres desejam corromper" \
+                          " ou destruir todas as coisas, em última análise, até mesmo você. Corruptores poderosos o" \
+                          " bastante para forjar pactos incluem lordes demônios como Demogorgon, Orcus, Fraz’Urb-luu " \
+                          "e Bafomé; arquidiabos como Asmodeus, Dispater, Mefistófeles e Belial; senhores das " \
+                          "profundezas e balors que sejam excepcionalmente poderosos; e ultraloths e outros senhores " \
+                          "dos yugoloths."
+            skills = "BÊNÇÃO DO OBSCURO A partir do 1° nível, quando você reduzir uma criatura hostil a 0 pontos de " \
+                     "vida, você ganha uma quantidade de pontos de vida temporários igual ao seu modificador de " \
+                     "Carisma + seu nível de bruxo (mínimo 1). SORTE DO PRÓPRIO OBSCURO A partir do 6° nível, você" \
+                     " pode pedir ao seu patrono para alterar o destino em seu favor. Quando você realizar um teste" \
+                     " de habilidade ou um teste de resistência, você pode usar essa característica para adicionar " \
+                     "1d10 a sua jogada. Você pode fazer isso após ver sua jogada inicial, mas antes que qualquer " \
+                     "efeito da jogada ocorra. Após usar essa características, você não poderá utilizá-la novamente" \
+                     " até terminar um descanso curto ou longo. RESISTÊNCIA DEMONÍACA A partir do 10° nível, você " \
+                     "pode escolher um tipo de dano quando você terminar um descanso curto ou longo. Você adquire " \
+                     "resistência contra esse tipo de dano até você escolher um tipo de dano diferente com essa " \
+                     "característica. Dano causado por armas mágicas ou armas de prata ignoram essa resistência. " \
+                     "LANÇAR NO INFERNO A partir do 14° nível, quando você atingir uma criatura com um ataque, " \
+                     "você pode usar essa característica para, instantaneamente, transportar o alvo para os planos" \
+                     " inferiores. A criatura desaparece e é jogada para um lugar similar a um pesadelo. No final " \
+                     "do seu turno, o alvo retorna ao lugar que ela ocupava anteriormente, ou para o espaço desocupado" \
+                     " mais próximo. Se o alvo não for um corruptor, ele sofre 10d10 de dano psíquico à medida que toma" \
+                     " conta da experiência traumática. Após usar essa características, você não poderá utilizá-la " \
+                     "novamente até terminar um descanso curto ou longo."
+            self.magic[1]["Mãos  Flamejantes (Evocação)"] = {
+                "Tempo de Conjuração": "1 Ação",
+                "Alcance": "Pessoal (cone de 4,5 metros)",
+                "Componentes": "V, S",
+                "Duração": "Instantânea",
+                "Descrição": "Enquanto você mantiver suas mãos com os polegares juntos e os dedos abertos, uma fino "
+                             "leque de chamas emerge das pontas dos seus dedos erguidos. Cada criatura num cone de "
+                             "4,5 metros deve realizar um teste de 257 resistência de Destreza. Uma criatura sofre "
+                             "3d6 de dano de fogo se falhar no teste, ou metade desse dano se obtiver sucesso. O fogo"
+                             " incendeia qualquer objeto inflamável na área que não esteja sendo vestido ou carregado."
+                             " Em Níveis Superiores. Se você conjurar essa magia usando um espaço de magia de 2° nível"
+                             " ou superior, o dano aumenta em 1d6 para cada nível do espaço acima do 1°."
+            }
+            self.magic[1]["Comando (Encantamento)"] = {
+                "Tempo de Conjuração": "1 Ação",
+                "Alcance": "18 Metros",
+                "Componentes": "V",
+                "Duração": "1 Rodada",
+                "Descrição": "Você pronuncia uma palavra de comando para uma criatura que você possa ver dentro do "
+                             "alcance. O alvo deve ser bem sucedido num teste de resistência de Sabedoria ou seguirá"
+                             " seu comando no próximo turno dele. A magia não tem efeito se o alvo for um morto-vivo,"
+                             " se ele não entender seu idioma ou se o comando for diretamente nocivo a ele. Alguns"
+                             " comandos típicos e seus efeitos a seguir. Você pode proferir um comando diferente dos"
+                             " descritos aqui. Se o fizer, o Mestre descreve como o alvo reage. Se o alvo não puder "
+                             "cumprir o comando, a magia termina. Aproxime-se. O alvo se move para próximo de você o"
+                             " máximo que puder na rota mais direta, terminando seu turno, se ele se mover a até 1,5"
+                             " metro de você. Largue. O alvo larga o que quer que ele esteja segurando, e termina seu"
+                             " turno. Fuja. O alvo gasta seu turno se movendo para longe de você da forma mais rápida"
+                             " que puder. Deite-se. O alvo deita-se no chão e então, termina seu turno. Parado. O alvo"
+                             " não se move e não realiza nenhuma ação. Uma criatura voadora continua no alto,"
+                             " considerando que ela seja capaz de fazê-lo. Se ela tiver que se mover para continuar no "
+                             "alto, ela voa a mínima distância necessária para permanecer no ar. Em Níveis Superiores."
+                             " Se você conjurar essa magia usando um espaço de magia de 2° nível ou superior, você pode"
+                             " afetar uma criatura adicional para cada nível do espaço acima do 1°. As criaturas devem"
+                             " estar a 9 metros entre si para serem afetadas."
+            }
+        elif patron == "Grande Antigo":
+            description = "Seu patrono é uma entidade misteriosa cuja natureza é profundamente alheia ao tecido da " \
+                          "realidade. Ela deve ter vindo do Reino Distante, o espaço além da realidade, ou ela pode ser" \
+                          " um dos deuses anciãos conhecido apenas nas lendas. Seus motivos são incompreensíveis para" \
+                          " os mortais e seu conhecimento é tão imenso e antigo que, até mesmo, as mais grandiosas" \
+                          " bibliotecas desbotam em comparação com os vastos segredos que ele detém. O Grande Antigo" \
+                          " pode desconhecer a sua existência ou ser totalmente indiferente a você, mas os segredos " \
+                          "que você desvendou permitem que você obtenha suas magias dele. Entidades desse tipo incluem" \
+                          " Ghaunadar, conhecido como Aquele que Espreita; Tharizdun, o Deus Acorrentado; Dendar, a" \
+                          " Serpente da Noite; Zargon, o Retornado; Grande Cthulhu; entre outros seres insondáveis."
+            skills = "DESPERTAR A MENTE A partir do 1° nível, seu conhecimento alienígena concede a você a habilidade" \
+                     " de tocar a mente de outras criaturas. Você pode se comunicar telepaticamente com qualquer" \
+                     " criatura que você possa ver a até 18 metros de você. Você não precisa partilhar um idioma com" \
+                     " a criatura para compreender suas expressões telepáticas, mas a criatura deve ser capaz de" \
+                     " compreender pelo menos um idioma. PROTEÇÃO ENTRÓPICA A partir do 6° nível, você aprende a se" \
+                     " proteger magicamente contra ataques e a transformar os ataques mal sucedidos de seus inimigos" \
+                     " em boa sorte pra você. Quando uma criatura realizar uma jogada de ataque contra você, você pode" \
+                     " usar sua reação para impor desvantagem nesse jogada. Se o ataque errar você, sua próxima jogada" \
+                     " de ataque contra essa criatura recebe vantagem se você o fizer antes do final do seu próximo" \
+                     " turno. Após usar essa características, você não poderá utilizá-la novamente até terminar um" \
+                     " descanso curto ou longo. ESCUDO DE PENSAMENTOS A partir do 10° nível, seus pensamentos não" \
+                     " podem ser lidos através de telepatia ou outros meios, a não ser que você permita. Você também" \
+                     " adquire resistência a dano psíquico e, toda vez que uma criatura causar dano psíquico a você," \
+                     " essa criatura sofre a mesma quantidade de dano que você sofreu. CRIAR LACAIO No 14° nível, você" \
+                     " adquire a habilidade de infectar a mente de um humanoide com a magia alienígena do seu patrono." \
+                     " Você pode usar sua ação para tocar um humanoide incapacitado. Essa criatura então, ficará" \
+                     " enfeitiçada por você até que a magia remover maldição seja conjurada sobre ela, a condição" \
+                     " enfeitiçado seja removida dela ou você use essa característica novamente. Você pode se comunicar" \
+                     " telepaticamente com a criatura enfeitiçada contanto que ambos estejam no mesmo plano de" \
+                     " existência."
+            self.magic[1]["Sussurros Dissonantes (Encantamento)"] = {
+                            "Tempo de Conjuração": "1 Ação",
+                            "Alcance": "18 metros",
+                            "Componentes": "V",
+                            "Duração": "Instantânea",
+                            "Descrição": "Você sussurra uma melodia dissonante que apenas uma criatura, à sua escolha,"
+                                         " dentro do alcance pode ouvir, causando-lhe uma terrível dor. O alvo deve"
+                                         " realizar um teste de resistência de Sabedoria. Se falhar na resistência,"
+                                         " ele sofrerá 3d6 de dano psíquico e deve, imediatamente, usar sua reação,"
+                                         " se disponível, para se mover para o mais longe possível de você. A"
+                                         " criatura não 284 se moverá para um terreno obviamente perigoso, como"
+                                         " uma fogueira ou abismo. Se obtiver sucesso na resistência, o alvo sofre"
+                                         " metade do dano e não precisa se afastar de você. Uma criatura surda obtém"
+                                         " sucesso automaticamente na sua resistência. Em Níveis Superiores. Quando"
+                                         " você conjurar essa magia usando um espaço de magia de 2° nível ou superior,"
+                                         " o dano aumenta em 1d6 para cada nível do espaço acima do 1°"}
+            self.magic[1]["Riso histérico de Tasha (Encantamento)"] = {
+                "Tempo de Conjuração": "1 Ação",
+                "Alcance": "9 Metros",
+                "Componentes": "V, S, M (pequenas tortas e uma pena que é balançada no ar)",
+                "Duração": "Concentração, até 1 minuto.",
+                "Descrição": "Uma criatura, à sua escolha, que você possa ver, dentro do alcance, acha tudo"
+                             " hilariantemente engraçado e cai na gargalhada, se essa magia afeta-la. O alvo deve ser"
+                             " bem sucedido em um teste de resistência de Sabedoria ou cairá no chão, ficando"
+                             " incapacitado e incapaz de se levantar pela duração. Uma criatura com valor de "
+                             "Inteligência 4 ou inferior não é afetada. Ao final de cada um dos turnos dela e, toda "
+                             "vez que sofrer dano, o alvo pode realizar outro teste de resistência de Sabedoria. O "
+                             "alvo terá vantagem no teste de resistência se ele for garantido por ele ter sofrido "
+                             "dano. Se obtiver sucesso, a magia acaba."}
+        return patron, description, skills
 
     @staticmethod
     def __set_skill_list__(personagem):
@@ -384,8 +617,56 @@ class Bruxo(Classe):
         personagem.magic[0] = nivel0
         personagem.magic[1] = nivel1
 
-    def get_name(self):
-        return f"CLASSE: {self.name}"
+    def __get_name__(self):
+        return self.name
+
+    def __get_proficiency_bonus__(self):
+        return self.proficiency_bonus
+
+    def __get_life__(self):
+        return self.life
+
+    def __get_dices_life__(self):
+        return self.dices_life
+
+    def __get_knowledge__(self):
+        return self.knowledge
+
+    def __get_expertise__(self):
+        return self.expertise
+
+    def __get_equip__(self):
+        return self.equip
+
+    def __get_endurance_tests__(self):
+        return self.endurance_tests
+
+    def __get_skills__(self):
+        return self.skills
+
+    def __set_name__(self, vlr):
+        self.name = vlr
+
+    def __set_proficiency_bonus__(self, vlr):
+        self.name = vlr
+
+    def __set_life__(self, vlr):
+        self.life = vlr
+
+    def __set_dices_life__(self, vlr):
+        self.dices_life = vlr
+
+    def __set_knowledge__(self, vlr):
+        self.knowledge.append(vlr)
+
+    def __set_expertise__(self, vlr):
+        self.expertise.append(vlr)
+
+    def __set_endurance_tests__(self, vlr):
+        self.endurance_tests.append(vlr)
+
+    def __set_skills__(self, chave, vlr):
+        self.skills[chave] = vlr
 
     def __set_config__(self, personagem):
         self.__set_magic__(personagem)
