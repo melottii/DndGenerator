@@ -1,0 +1,259 @@
+{
+ "RODOLFO_": {
+  "NAME": "RODOLFO",
+  "RACE": {
+   "NAME": "HALFLING ROBUSTO",
+   "DESCRIPTION": " Os pequeninos halflings sobrevivem em um mundo cheio de criaturas maiores ao evitar serem notados, ou evitando o combate direto. Com uns 90 cent\u00edmetros de altura, elesparecem inofensivos e assim conseguiram sobreviver por s\u00e9culos \u00e0s sombras dos imp\u00e9rios e \u00e0 margem de guerras e conflitos pol\u00edticos. Eles normalmente s\u00e3o robustos, pesando entre 20 kg e 22,5 kg. A pele dos halflings varia do bronzeado ao p\u00e1lido com um tom corado, e seu cabelo \u00e9 geralmente castanho ou castanho claro e ondulado. Eles t\u00eam olhos castanhos ou amendoados. Halflings do sexo masculino muitas vezes ostentam costeletas longas, mas barbas s\u00e3o raras entre eles e bigodes s\u00e3o quase inexistentes. Eles gostam de usar roupas simples, confort\u00e1veis e pr\u00e1ticas, preferindo as cores claras. A praticidade dos halflings se estende para al\u00e9m de suas roupas. Eles se preocupam com as necessidades b\u00e1sicas e os prazeres simples, e n\u00e3o s\u00e3o inclinados \u00e0 ostenta\u00e7\u00e3o. Mesmo o mais rico dos halflings mant\u00e9m seus tesouros trancados em um por\u00e3o, em vez de expostos \u00e0 vista de todos. Eles possuem um talento especial para encontrar a solu\u00e7\u00e3o mais simples para um problema e t\u00eam pouca paci\u00eancia para indecis\u00f5es.",
+   "RESTRICTION": {
+    "Deslocamento": "Seu deslocamento base de caminhada \u00e9 7,5 metros. ",
+    "Tamanho": "Halflings medem cerca de 0,90 metro de altura e pesam aproximadamente 20 kg. Seu tamanho \u00e9 Pequeno.",
+    "Tend\u00eancia": "A maioria dos halflings \u00e9 leal e boa. Via de regra, eles possuem um bom cora\u00e7\u00e3o e s\u00e3o am\u00e1veis, odeiam ver o sofrimento dos outros e n\u00e3o toleram a opress\u00e3o. Eles tamb\u00e9m s\u00e3o muito ordeiros e tradicionais, fortemente apegados \u00e0 sua comunidade e ao conforto de suas antigas tradi\u00e7\u00f5es.",
+    "Idiomas": "Voc\u00ea pode falar, ler e escrever Comum e Halfling. A linguagem Halfling n\u00e3o \u00e9 secreta, mas os halflings s\u00e3o relutantes em compartilh\u00e1-la com os outros. Eles escrevem muito pouco, por isso eles n\u00e3o possuem uma literatura rica. No entanto, sua tradi\u00e7\u00e3o oral \u00e9 muito forte. Quase todos os halflings falam o idioma Comum para conversar com as pessoas das terras que habitam, ou atrav\u00e9s das quais eles estejam viajando. ",
+    "Idade": "Um halfling atinge a idade adulta aos 20 anos e pode chegar a 150 anos."
+   },
+   "SKILLS": {
+    "Aumento no Valor de Habilidade": "Seu valor de Constitui\u00e7\u00e3o aumenta em 1. ",
+    "Sortudo": "Quando voc\u00ea obtiver um 1 natural em uma jogada de ataque, teste de habilidade ou teste de resist\u00eancia, voc\u00ea pode jogar de novo o dado e deve utilizar o novo resultado.",
+    "Bravura": "Voc\u00ea tem vantagem em testes de resist\u00eancia contra ficar amedrontado. ",
+    "Agilidade Halfling": "Voc\u00ea pode mover-se atrav\u00e9s do espa\u00e7o de qualquer criatura que for de um tamanho maior que o seu. ",
+    "Resili\u00eancia dos Robustos. Voc\u00ea": "tem vantagem em testes de resist\u00eancia contra veneno e tem resist\u00eancia contra dano de veneno. "
+   }
+  },
+  "CLASS": {
+   "NAME": "BRUXO",
+   "DICES LIFE": "1d8",
+   "SKILLS": {
+    "MAGIAS DE PACTO": "Sua pesquisa arcana e a magia outorgada a voc\u00ea por seu patrono, lhe concedem uma gama de magias. Veja o cap\u00edtulo 10 para as regras gerais de conjura\u00e7\u00e3o e o cap\u00edtulo 11 para a lista de magias de bruxo. TRUQUES Voc\u00ea conhece dois truques, \u00e0 sua escolha, da lista de magias de bruxo. Voc\u00ea aprende truques de bruxo adicionais, \u00e0 sua escolha, em n\u00edveis mais altos, como mostrado na coluna Truques Conhecidos da tabela O Bruxo. ESPA\u00c7OS DE MAGIA A tabela O Bruxo mostra quantos espa\u00e7os de magia voc\u00ea possui. A tabela tamb\u00e9m mostra qual o n\u00edvel desses espa\u00e7os; todos os seus espa\u00e7os de magia s\u00e3o do mesmo n\u00edvel. Para conjurar uma magia de bruxo de 1\u00b0 n\u00edvel ou superior, voc\u00ea deve gastar uma espa\u00e7o de magia. Voc\u00ea recobra todos os espa\u00e7os de magia gastos quando voc\u00ea completa um descanso curto ou longo. Por exemplo, quando voc\u00ea atingir o 5\u00b0 n\u00edvel, voc\u00ea ter\u00e1 dois espa\u00e7os de magia de 3\u00b0 n\u00edvel. Para conjurar a magia de 1\u00b0 n\u00edvel onda trovejante, voc\u00ea deve gastar um desses espa\u00e7os e voc\u00ea a conjura como uma magia de 3\u00b0 n\u00edvel. MAGIAS CONHECIDAS DE 1\u00b0 N\u00cdVEL E SUPERIORES No 1\u00b0 n\u00edvel, voc\u00ea conhece duas magias de 1\u00b0 n\u00edvel, \u00e0 sua escolha da lista de magias de bruxo. A coluna Magias Conhecidas na tabela O Bruxo mostra quando voc\u00ea aprende mais magias de bruxo, \u00e0 sua escolha, de 1\u00b0 n\u00edvel ou superior. Cada uma dessas magias deve ser de um n\u00edvel a que voc\u00ea tenha acesso, como mostrado na tabela na coluna de N\u00edvel de Magia para o seu n\u00edvel. Quando voc\u00ea alcan\u00e7a o 6\u00b0 n\u00edvel, por exemplo, voc\u00ea aprende uma nova magia de bruxo, que pode ser de 1\u00b0, 2\u00b0 ou 3\u00b0 n\u00edvel. Al\u00e9m disso, quando voc\u00ea adquire um n\u00edvel nessa classe, voc\u00ea pode escolher uma magia de bruxo que voc\u00ea conhe\u00e7a e substitu\u00ed-la por outra magia da lista de magias de bruxo, que tamb\u00e9m deve ser de um n\u00edvel ao qual voc\u00ea tenha espa\u00e7os de magia. HABILIDADE DE CONJURA\u00c7\u00c3O Sua habilidade de conjura\u00e7\u00e3o \u00e9 Carisma para suas magias de bruxo, portanto, voc\u00ea usa seu Carisma sempre que alguma magia se referir \u00e0 sua habilidade de conjurar magias. Al\u00e9m disso, voc\u00ea usa o seu modificador de Carisma para definir a CD dos testes de resist\u00eancia para as magias de bruxo que voc\u00ea conjura e quando voc\u00ea realiza uma jogada de ataque com uma magia. CD para suas magias = 8 + b\u00f4nus de profici\u00eancia + seu modificador de Carisma Modificador de ataque de magia = seu b\u00f4nus de profici\u00eancia + seu modificador de Carisma FOCO DE CONJURA\u00c7\u00c3O Voc\u00ea pode usar um foco arcano (encontrado no cap\u00edtulo 5) como foco de conjura\u00e7\u00e3o das suas magias de bruxo.",
+    "PATRONO TRANSCENDENTAL": "No 1\u00b0 n\u00edvel, voc\u00ea conclui uma barganha com um ser transcendental, \u00e0 sua escolha: a Arquifada, o Corruptor ou o Grande Antigo, cada um deles \u00e9 detalhado no final da descri\u00e7\u00e3o da classe. Sua escolha lhe confere tra\u00e7os no 1\u00b0 n\u00edvel e novamente no6\u00b0, 10\u00b0 e 14\u00b0 n\u00edvel.",
+    "DEFINI\u00c7\u00c3O DE PATRONO": [
+     "Grande Antigo",
+     "Seu patrono \u00e9 uma entidade misteriosa cuja natureza \u00e9 profundamente alheia ao tecido da realidade. Ela deve ter vindo do Reino Distante, o espa\u00e7o al\u00e9m da realidade, ou ela pode ser um dos deuses anci\u00e3os conhecido apenas nas lendas. Seus motivos s\u00e3o incompreens\u00edveis para os mortais e seu conhecimento \u00e9 t\u00e3o imenso e antigo que, at\u00e9 mesmo, as mais grandiosas bibliotecas desbotam em compara\u00e7\u00e3o com os vastos segredos que ele det\u00e9m. O Grande Antigo pode desconhecer a sua exist\u00eancia ou ser totalmente indiferente a voc\u00ea, mas os segredos que voc\u00ea desvendou permitem que voc\u00ea obtenha suas magias dele. Entidades desse tipo incluem Ghaunadar, conhecido como Aquele que Espreita; Tharizdun, o Deus Acorrentado; Dendar, a Serpente da Noite; Zargon, o Retornado; Grande Cthulhu; entre outros seres insond\u00e1veis.",
+     "DESPERTAR A MENTE A partir do 1\u00b0 n\u00edvel, seu conhecimento alien\u00edgena concede a voc\u00ea a habilidade de tocar a mente de outras criaturas. Voc\u00ea pode se comunicar telepaticamente com qualquer criatura que voc\u00ea possa ver a at\u00e9 18 metros de voc\u00ea. Voc\u00ea n\u00e3o precisa partilhar um idioma com a criatura para compreender suas express\u00f5es telep\u00e1ticas, mas a criatura deve ser capaz de compreender pelo menos um idioma. PROTE\u00c7\u00c3O ENTR\u00d3PICA A partir do 6\u00b0 n\u00edvel, voc\u00ea aprende a se proteger magicamente contra ataques e a transformar os ataques mal sucedidos de seus inimigos em boa sorte pra voc\u00ea. Quando uma criatura realizar uma jogada de ataque contra voc\u00ea, voc\u00ea pode usar sua rea\u00e7\u00e3o para impor desvantagem nesse jogada. Se o ataque errar voc\u00ea, sua pr\u00f3xima jogada de ataque contra essa criatura recebe vantagem se voc\u00ea o fizer antes do final do seu pr\u00f3ximo turno. Ap\u00f3s usar essa caracter\u00edsticas, voc\u00ea n\u00e3o poder\u00e1 utiliz\u00e1-la novamente at\u00e9 terminar um descanso curto ou longo. ESCUDO DE PENSAMENTOS A partir do 10\u00b0 n\u00edvel, seus pensamentos n\u00e3o podem ser lidos atrav\u00e9s de telepatia ou outros meios, a n\u00e3o ser que voc\u00ea permita. Voc\u00ea tamb\u00e9m adquire resist\u00eancia a dano ps\u00edquico e, toda vez que uma criatura causar dano ps\u00edquico a voc\u00ea, essa criatura sofre a mesma quantidade de dano que voc\u00ea sofreu. CRIAR LACAIO No 14\u00b0 n\u00edvel, voc\u00ea adquire a habilidade de infectar a mente de um humanoide com a magia alien\u00edgena do seu patrono. Voc\u00ea pode usar sua a\u00e7\u00e3o para tocar um humanoide incapacitado. Essa criatura ent\u00e3o, ficar\u00e1 enfeiti\u00e7ada por voc\u00ea at\u00e9 que a magia remover maldi\u00e7\u00e3o seja conjurada sobre ela, a condi\u00e7\u00e3o enfeiti\u00e7ado seja removida dela ou voc\u00ea use essa caracter\u00edstica novamente. Voc\u00ea pode se comunicar telepaticamente com a criatura enfeiti\u00e7ada contanto que ambos estejam no mesmo plano de exist\u00eancia."
+    ]
+   }
+  },
+  "TREND": "Leal e Mau",
+  "LIFE": 12,
+  "ARMOR CLASS": 0,
+  "DICES": {
+   "proficiency_bonus": "+2",
+   "resistence_test": [
+    "wisdom",
+    "charisma"
+   ],
+   "rolls": {
+    "strength": 16,
+    "dexterity": 11,
+    "constitution": 18,
+    "intelligence": 15,
+    "wisdom": 11,
+    "charisma": 10
+   },
+   "modifiers": {
+    "strength": 3,
+    "dexterity": 0,
+    "constitution": 4,
+    "intelligence": 2,
+    "wisdom": 0,
+    "charisma": 0
+   }
+  },
+  "EQUIP": {
+   "ARMAS": {
+    "Clava Grande": {
+     "PRE\u00c7O": 2,
+     "MOEDA": "pp",
+     "PESO": "5 kg",
+     "QUANTIDADE": 1
+    },
+    "Azagaia": {
+     "PRE\u00c7O": 5,
+     "MOEDA": "pp",
+     "PESO": "1 kg",
+     "QUANTIDADE": 1
+    },
+    "Adaga": {
+     "PRE\u00c7O": 2,
+     "MOEDA": "po",
+     "PESO": "0.5 kg",
+     "QUANTIDADE": 1
+    }
+   },
+   "ARMADURAS": {
+    "Couro": {
+     "PRE\u00c7O": 10,
+     "MOEDA": "po",
+     "PESO": 5,
+     "QUANTIDADE": 1
+    }
+   },
+   "EQUIPAMENTOS": {
+    "Anel de sinete de um duque imagin\u00e1rio": {
+     "PRE\u00c7O": 0,
+     "MOEDA": "pp",
+     "PESO": 0,
+     "QUANTIDADE": 1
+    },
+    "Roupas finas": {
+     "PRE\u00c7O": 15,
+     "MOEDA": "po",
+     "PESO": 3,
+     "QUANTIDADE": 1
+    },
+    "Kit de disfarce": {
+     "PRE\u00c7O": 25,
+     "MOEDA": "po",
+     "PESO": 1.5,
+     "QUANTIDADE": 1
+    },
+    "Ferramentas de trapa\u00e7a": {
+     "PRE\u00c7O": 1,
+     "MOEDA": "po",
+     "PESO": 2.5,
+     "QUANTIDADE": 1
+    },
+    "Garrafa de vidro tampada com l\u00edquido colorido": {
+     "PRE\u00c7O": 1,
+     "MOEDA": "po",
+     "PESO": 1,
+     "QUANTIDADE": 10
+    },
+    "Conjunto de dados viciados": {
+     "PRE\u00c7O": 1,
+     "MOEDA": "pp",
+     "PESO": 0,
+     "QUANTIDADE": 1
+    },
+    "Algibeira": {
+     "PRE\u00c7O": 5,
+     "MOEDA": "po",
+     "PESO": 0.5,
+     "QUANTIDADE": 1
+    },
+    "Bolsa de componentes": {
+     "PRE\u00c7O": 25,
+     "MOEDA": "po",
+     "PESO": 1,
+     "QUANTIDADE": 1
+    },
+    "Mochila": {
+     "PRE\u00c7O": 2,
+     "MOEDA": "po",
+     "PESO": 2.5,
+     "QUANTIDADE": 1
+    },
+    "Saco de dormir": {
+     "PRE\u00c7O": 1,
+     "MOEDA": "po",
+     "PESO": 3.5,
+     "QUANTIDADE": 1
+    },
+    "Kit de refei\u00e7\u00e3o": {
+     "PRE\u00c7O": 1,
+     "MOEDA": "po",
+     "PESO": 0,
+     "QUANTIDADE": 1
+    },
+    "Caixa de fogo": {
+     "PRE\u00c7O": 5,
+     "MOEDA": "pp",
+     "PESO": 0.5,
+     "QUANTIDADE": 1
+    },
+    "Tocha": {
+     "PRE\u00c7O": 1,
+     "MOEDA": "pc",
+     "PESO": 0.5,
+     "QUANTIDADE": 10
+    },
+    "Ra\u00e7\u00f5es de viagem (1 dia)": {
+     "PRE\u00c7O": 5,
+     "MOEDA": "pp",
+     "PESO": 1,
+     "QUANTIDADE": 10
+    },
+    "Cantil": {
+     "PRE\u00c7O": 2,
+     "MOEDA": "pp",
+     "PESO": 2.5,
+     "QUANTIDADE": 1
+    },
+    "Corda de c\u00e2nhamo (15 metros)": {
+     "PRE\u00c7O": 1,
+     "MOEDA": "po",
+     "PESO": 5,
+     "QUANTIDADE": 1
+    }
+   }
+  },
+  "EXPERTISE": [
+   "Engana\u00e7\u00e3o",
+   "Prestidigita\u00e7\u00e3o",
+   "Hist\u00f3ria",
+   "Intimida\u00e7\u00e3o"
+  ],
+  "KNOWLEDGE": [
+   "Kit de Disfarce.",
+   "Kit de Falsifica\u00e7\u00e3o",
+   "Caracter\u00edstica: Identidade Falsa",
+   "Armaduras leves",
+   "Armas simples"
+  ],
+  "IDIOM": {
+   "rand": 1,
+   "choice": []
+  },
+  "BACKGROUND": {
+   "NAME": "CHARLAT\u00c3O",
+   "TYPE": "Eu troco de identidade como troco de roupa.",
+   "PERSONALITY TRAIT": [
+    "Eu furto qualquer coisa que eu vejo que possa ter algum valor.",
+    "Eu tenho v\u00e1rios s\u00edmbolos sagrados comigo, e invoco a divindade que seja mais \u00fatil em cada dado momento."
+   ],
+   "IDEAL": "Justi\u00e7a. Eu nunca roubo de pessoas que n\u00e3o podem perder algumas moedas.",
+   "BOND": "Eu extorqui a pessoa errada e devo trabalhar para que esse indiv\u00edduo nunca mais cruze meu caminho ou o das pessoas com quem me importo.",
+   "FLAW": "Eu odeio admitir e vou me odiar por isso, mas, eu vou correr e salvar minha pr\u00f3pria pele se as coisas engrossarem."
+  },
+  "MONEY": {
+   "cobre (pc)": 0,
+   "prata (pp)": 0,
+   "electro (pe)": 0,
+   "ouro (po)": 15,
+   "platina (pl)": 0
+  },
+  "MAGIC": {
+   "0": {
+    "Prestidigita\u00e7\u00e3o (transmuta\u00e7\u00e3o)": {
+     "Tempo de Conjura\u00e7\u00e3o": "1 A\u00e7\u00e3o",
+     "Alcance": "3 Metros",
+     "Componentes": "V, S",
+     "Dura\u00e7\u00e3o": "At\u00e9 1 hora",
+     "Descri\u00e7\u00e3o": "Essa magia \u00e9 um truque m\u00e1gico simples que conjuradores iniciantes usam para praticar. Voc\u00ea cria um dos seguintes efeitos m\u00e1gicos dentro do alcance: Voc\u00ea cria, instantaneamente, um efeito sensorial inofensivo, como uma chuva de fa\u00edscas, um sopro de vento, notas musicais suaves ou um odor estranho. Voc\u00ea, instantaneamente, acende ou apaga uma vela, uma tocha ou uma pequena fogueira. Voc\u00ea, instantaneamente, limpa ou suja um objeto de at\u00e9 1 metro c\u00fabico. Voc\u00ea esfria, esquenta ou melhora o sabor de at\u00e9 1 metro cubico de mat\u00e9ria inorg\u00e2nica por 1 hora. Voc\u00ea faz uma cor, uma pequena marca ou um s\u00edmbolo aparecer em um objeto ou superf\u00edcie por 1 hora. Voc\u00ea cria uma bugiganga n\u00e3o-m\u00e1gica ou uma imagem ilus\u00f3ria que caiba na sua m\u00e3o e que dura at\u00e9 o final do seu pr\u00f3ximo turno. Se voc\u00ea conjurar essa magia diversas vezes, voc\u00ea pode ter at\u00e9 tr\u00eas dos seus efeitos n\u00e3o-instant\u00e2neos ativos, ao mesmo tempo, e voc\u00ea pode dissipar um desses efeitos com uma a\u00e7\u00e3o."
+    },
+    "Amizade (encantamento)": {
+     "Tempo de Conjura\u00e7\u00e3o": "1 A\u00e7\u00e3o",
+     "Alcance": "Pessoal",
+     "Componentes": "S, M (uma pequena quantidade de maquiagem aplicada ao rosto durante a conjura\u00e7\u00e3o da magia)",
+     "Dura\u00e7\u00e3o": "Concentra\u00e7\u00e3o, at\u00e9 1 minuto",
+     "Descri\u00e7\u00e3o": "Pela dura\u00e7\u00e3o, voc\u00ea ter\u00e1 vantagem em todos os testes de Carisma direcionados a uma criatura, \u00e0 sua escolha, que n\u00e3o seja hostil a voc\u00ea. Quando a magia acabar, a criatura perceber\u00e1 que voc\u00ea usou maia para influenciar o humor dela, e ficar\u00e1 hostil a voc\u00ea. Uma criatura propensa a viol\u00eancia ir\u00e1 atacar voc\u00ea. Outra criatura pode buscar outras formas de retalia\u00e7\u00e3o (a crit\u00e9rio do Mestre), dependendo da natureza da sua intera\u00e7\u00e3o com ela."
+    }
+   },
+   "1": {
+    "Recuo Acelerado (transmuta\u00e7\u00e3o)": {
+     "Tempo de Conjura\u00e7\u00e3o": "1 A\u00e7\u00e3o b\u00f4nus",
+     "Alcance": "Pessoal",
+     "Componentes": "V, S",
+     "Dura\u00e7\u00e3o": "At\u00e9 10 minutos",
+     "Descri\u00e7\u00e3o": "Essa magia permite que voc\u00ea se mova a um ritmo incr\u00edvel. Quando voc\u00ea conjura essa magia e, a partir de ent\u00e3o, com uma a\u00e7\u00e3o b\u00f4nus em cada um dos seus turnos, at\u00e9 a magia acabar, voc\u00ea pode realizar a a\u00e7\u00e3o de Disparada."
+    },
+    "Repreens\u00e3o Infernal (evoca\u00e7\u00e3o)": {
+     "Tempo de Conjura\u00e7\u00e3o": "1 A\u00e7\u00e3o",
+     "Alcance": "18 Metros",
+     "Componentes": "V, S",
+     "Dura\u00e7\u00e3o": "Instant\u00eanea",
+     "Descri\u00e7\u00e3o": "Rea\u00e7\u00e3o que voc\u00ea faz em resposta ao sofre dano de uma criatura a at\u00e9 18 metros de voc\u00ea e que voc\u00ea possa ver. Voc\u00ea aponta seu dedo e a criatura que causou dano a voc\u00ea \u00e9, momentaneamente, envolta por chamas infernais. A criatura deve realizar um teste de resist\u00eancia de Destreza. Ela sofre 2d10 de dano de fogo se falhar na resist\u00eancia ou metade desse dano se obtiver sucesso. Em N\u00edveis Superiores. Quando voc\u00ea conjurar essa magia usando um espa\u00e7o de magia de 2\u00b0 n\u00edvel ou superior, o dano aumenta em 1d10 para cada n\u00edvel do espa\u00e7o acima do 1\u00b0."
+    }
+   }
+  }
+ }
+}

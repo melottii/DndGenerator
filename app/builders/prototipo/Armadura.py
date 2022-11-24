@@ -1,5 +1,6 @@
 from app.builders.prototipo.Equipamento import Equipamento
 
+
 class Armadura(Equipamento):
     def __init__(self, nome:str, preco: int, moeda: str, peso: float, quantidade: int, ca: int, furtividade: str):
         super().__init__(nome, preco, moeda, peso, quantidade)
