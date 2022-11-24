@@ -1,5 +1,5 @@
 from app.builders.BuilderPersonagem import BuilderPersonagem
-from sessao import *
+from interface.sessao import *
 
 class DndGenerator:
     def __init__(self):
