@@ -14,19 +14,18 @@ db = client.dndgenerator
 
 users = db.users
 
+
 class UsuarioDao:
-
-    def __init__(self):
-        pass
-
-    def getUsuario(self, email):
+    @staticmethod
+    def getUsuario(email):
         try:
             user = users.find_one({"email": email})
             return user
         except Exception as e:
             sys.exit(f"ERRO AO LER OS DADOS DO BANCO: {e}")
-    
-    def getAllUsuarios(self):
+
+    @staticmethod
+    def getAllUsuarios():
         try:
             users_list = []
             cursor = users.find({})
@@ -36,17 +35,17 @@ class UsuarioDao:
         except Exception as e:
             sys.exit(f"ERRO AO LER OS DADOS DO BANCO: {e}")
 
-    def deleteUsuario(self, email):
+    @staticmethod
+    def deleteUsuario(email):
         try:
             query = {"email": email}
-
             users.delete_one(query)
             return True
         except Exception as e:
             sys.exit(f"ERRO AO ALTERAR O REGISTRO NA BASE DE DADOS: {e}")
 
-
-    def updateUsuario(self, usuario):
+    @staticmethod
+    def updateUsuario(usuario):
         try:
             user = {
                 "nome": usuario.__get_nome__(),
@@ -64,7 +63,7 @@ class UsuarioDao:
         try:
             criou = False
             existe = self.getUsuario(usuario.__get_email__())
-            if existe == None:
+            if existe is None:
                 user = {
                     "nome": usuario.__get_nome__(),
                     "email": usuario.__get_email__(),
@@ -75,4 +74,3 @@ class UsuarioDao:
             return criou
         except Exception as e:
             sys.exit(f"ERRO AO INCLUIR O USUÁRIO NO BANCO DE DADOS: {e}")
-

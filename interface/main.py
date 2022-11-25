@@ -6,12 +6,14 @@ import re
 from app.builders.BuilderPersonagem import BuilderPersonagem
 from interface.sessao import *
 
+
 class DndGenerator:
     def __init__(self):
-        self.user = login("vinicius@gmail.com", "123")
+        self.user = login()
         self.character = BuilderPersonagem()
 
-    def define_escolhas(self):
+    @staticmethod
+    def define_escolhas():
         chosen_name = input("Nome do personagem: ")
         print("\nRaças cadastradas:")
         rc = {"1": "Anão da Colina",
@@ -51,32 +53,6 @@ class DndGenerator:
             chosen_background = ant[chosen_background]
         print()
         return chosen_name, chosen_race, chosen_class, chosen_background
-
-    def printa_usuario(self):
-        print(self.user.nome)
-        print(self.user.email)
-
-    def printa_personagem(self):
-        print(self.define_equipamentos())
-        """
-        print(self.character.name)
-        print(self.character.race.name)
-        print(self.character.person_class.name)
-        print(self.character.trend)
-        print(self.character.money)
-        self.printa_equipamentos()
-        print(self.character.dices["rolls"])
-        print(self.character.dices["modifiers"])
-        print(self.character.background.background_format["name"])
-        print(self.character.background.background_format["type"])
-        print(self.character.background.background_format["personality_trait"][0])
-        print(self.character.background.background_format["personality_trait"][1])
-        print(self.character.background.background_format["ideal"])
-        print(self.character.background.background_format["flaw"])
-        print(self.character.background.background_format["bond"])
-        print("Truques: ", list(self.character.magic[0].keys()))
-        print("Magias: ", list(self.character.magic[1].keys()))
-        """
 
     def define_equipamentos(self):
         equipamentos = {}
@@ -130,5 +106,4 @@ if __name__ == "__main__":
     first_person = DndGenerator()
     chosen = first_person.define_escolhas()
     first_person.character = first_person.character.director(chosen[0], chosen[1], chosen[2], chosen[3])
-    # first_person.printa_personagem()
     first_person.json_output()
